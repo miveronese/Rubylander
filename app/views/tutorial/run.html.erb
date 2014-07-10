@@ -1,18 +1,22 @@
+<div>
+    <h1>Welcome to our tutorial</h1>
 
-<h1>Welcome to our tutorial</h1>
+    <p>Type your code in the box:
+    </p>
 
-<p>Type blabla in the box bellow:
-</p>
+   <div>
+        <p>
+          <%= text_area_tag :text, @input, :cols => "100%", :rows => "30%" %><br>
+        </p>
+    </div>
 
+    </br>
 
+    <div>
+        <%= form_tag do  %>
+                <%= text_area_tag :text, "", :cols => "100%", :rows => "2%" %></br>
+                <%= submit_tag 'Run' %>
+        <% end %>
+    </div>
+</div>
 
-<%= form_tag do  %>
-    <%= text_area_tag :text, "Hello", size: 50 %><br>
-    <%= submit_tag 'Run' %>
-
-<% end %>
-
-<p>
- <%= @input %>
-
-</p>
