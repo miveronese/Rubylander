@@ -1,0 +1,18 @@
+
+<h1>Welcome to our tutorial</h1>
+
+<p>Type blabla in the box bellow:
+</p>
+
+
+
+<%= form_tag do  %>
+    <%= text_area_tag :text, "Hello", size: 50 %><br>
+    <%= submit_tag 'Run' %>
+
+<% end %>
+
+<p>
+ <%= @input %>
+
+</p>

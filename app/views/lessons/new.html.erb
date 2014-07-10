@@ -1,0 +1,17 @@
+
+
+
+<h1>Welcome to our tutorial</h1>
+
+<p>Type blabla in the box bellow:
+</p>
+
+
+
+<%= form_for @lesson do |f| %>
+    <%= f.text_area :text, rows: 20, cols: 50 %><br>
+    <%= f.submit 'Run' %>
+
+
+<% end %>
+
