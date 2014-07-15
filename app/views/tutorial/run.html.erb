@@ -1,3 +1,5 @@
+
+
 <div>
     <h1>Welcome to our tutorial</h1>
 
@@ -6,7 +8,12 @@
 
    <div>
         <p>
-          <%= text_area_tag :text, @input, :cols => "100%", :rows => "30%" %><br>
+          <% if @input.include?("ls")%>
+              <%= text_area_tag(:text, 'Haha, are you a hacker?', :cols => "100%", :rows => "30%") %><br>
+          <% else %>
+              <%= text_area_tag(:text, @result, :cols => "100%", :rows => "30%") %><br>
+          <% end %>
+
         </p>
     </div>
 
