@@ -1,7 +1,8 @@
 class TutorialController < ApplicationController
 
   def run
-    @input = params["text"]
+    @input = eval (params["text"].to_s)
+
   end
 
 end
