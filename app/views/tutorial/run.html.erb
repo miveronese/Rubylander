@@ -1,29 +1,36 @@
 
 
-<div>
-    <h1>Welcome to our tutorial</h1>
+  <div id = "wrap">
 
-    <p>Type your code in the box:
-    </p>
+    <div id = "header"> <h1>Vamos aprender Ruby on Rails?</h1></div>
 
-   <div>
+    <div id="nav"></div>
+
+    <div id = "main">
+
+      <div>
         <p>
-          <% if @input.include?("ls")%>
-              <%= text_area_tag(:text, 'Haha, are you a hacker?', :cols => "100%", :rows => "30%") %><br>
-          <% else %>
-              <%= text_area_tag(:text, @result, :cols => "100%", :rows => "30%") %><br>
-          <% end %>
-
+          <%= text_area_tag(:text, @result, :cols => "50%", :rows => "30%") %><br>
         </p>
-    </div>
+      </div>
 
-    </br>
+      </br>
 
-    <div>
+      <div>
         <%= form_tag do  %>
-                <%= text_area_tag :text, "", :cols => "100%", :rows => "2%" %></br>
-                <%= submit_tag 'Run' %>
+            <%= text_area_tag :text, "", :cols => "50%", :rows => "2%" %></br>
+            <%= submit_tag 'Run' %>
         <% end %>
-    </div>
-</div>
+      </div>
+  </div>
+
+  <div id = "sidebar">
+    <h2> Bem-vind@ ao nosso tutorial</h2>
+    <p> nonnonononononnononononononononononononon</p>
+  </div>
+
+
+  <div id="footer"><p> ballallalalalalaallalalaalla</p></div>
+  </div>
+
 
