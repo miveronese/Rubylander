@@ -23,13 +23,13 @@ class TutorialController < ApplicationController
     false
   end
 
-  def evaluate(input)
+  def evaluate_input(input)
     begin
       eval(input)
     rescue SyntaxError => syntax_error
       " The syntax is not correct : " + syntax_error.message
     rescue ArgumentError => argument_error
-      " The argument is not correct : " + argument_error.message
+      "The argument is not correct: " + argument_error.message
     rescue StandardError => standard_error
       "Error running script: " + standard_error.message
     end
