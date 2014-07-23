@@ -15,12 +15,7 @@ class TutorialController < ApplicationController
   def contains_evil_codes?(input)
     evilcode = ["mkdir", "rmdir", "mydir", "rm", "ls", "-a", "ls -a", "cd", "pwd", "chroot", "cp", "-i", "cp -i",
       "`mkdir`", "`rmdir`", "`mydir`", "`rm`", "`ls`", "`-a`", "`ls -a`", "`cd`", "`pwd`", "`chroot`", "`cp`", "`-i`", "`cp -i`"]
-    evilcode.each do |x|
-      if input.include?(x)
-        return true
-      end
-    end
-    false
+    evilcode.map { |x| input.include?(x) }.include?(true)
   end
 
   def evaluate_input(input)
