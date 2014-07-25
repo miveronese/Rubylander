@@ -1,5 +1,7 @@
 class TutorialController < ApplicationController
 
+  # attr_accessor :input, :result
+
   def run
     @input  = params["text"].to_s
 
@@ -8,14 +10,14 @@ class TutorialController < ApplicationController
     elsif contains_evil_codes?(@input)
       @result = "You are a hacker"
     else
-      @result = evaluate(@input)
+      @result = evaluate_input(@input)
     end
   end
 
   def contains_evil_codes?(input)
-    evilcode = ["mkdir", "rmdir", "mydir", "rm", "ls", "-a", "ls -a", "cd", "pwd", "chroot", "cp", "-i", "cp -i",
+    evil_code = ["mkdir", "rmdir", "mydir", "rm", "ls", "-a", "ls -a", "cd", "pwd", "chroot", "cp", "-i", "cp -i",
       "`mkdir`", "`rmdir`", "`mydir`", "`rm`", "`ls`", "`-a`", "`ls -a`", "`cd`", "`pwd`", "`chroot`", "`cp`", "`-i`", "`cp -i`"]
-    evilcode.map { |x| input.include?(x) }.include?(true)
+    evil_code.map { |x| input.include?(x) }.include?(true)
   end
 
   def evaluate_input(input)

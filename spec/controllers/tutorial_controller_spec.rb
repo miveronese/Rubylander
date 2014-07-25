@@ -34,7 +34,7 @@ describe TutorialController do
       expect(controller.evaluate_input(" ['a','b','c'].inject(:+) ")).to eq("abc")
     end
 
-    it "should evaluate if input code doesn't contain an item" do
+    it "should evaluate if input code not contains an item" do
       controller = TutorialController.new
       expect(controller.evaluate_input("[1,2][1]")).not_to eq 3
     end
@@ -44,7 +44,7 @@ describe TutorialController do
       expect(controller.evaluate_input("[1, 2]")).to include(1)
     end
 
-    it "should evaluate if a given array contains an item" do
+    it "should evaluate if a given array contains an certain integer" do
       controller = TutorialController.new
       expect(controller.evaluate_input("1..10")).to cover(7)
     end
@@ -53,11 +53,32 @@ describe TutorialController do
       controller = TutorialController.new
       expect(controller.evaluate_input("[0,1,2]")).to end_with 2
     end
-
-
-
-
   end
+
+  #
+  # THIS DOESN'T WORK!! RAILS WON'T LET ME!
+  # describe "run" do
+  #
+  #   context "input is provided" do
+  #
+  #     before do
+  #       @controller = TutorialController.new
+  #       @controller.params["text"] = "1 + 1"
+  #     end
+  #
+  #     it "sets @result to the result of evaluating the input" do
+  #       @controller.run
+  #       expect(@controller.result).to eq(2)
+  #
+  #     end
+  #
+  #   end
+  #
+  #   context "input is not provided" do
+  #
+  #   end
+  #
+  # end
 
 end
 
