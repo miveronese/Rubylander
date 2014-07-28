@@ -26,7 +26,7 @@ describe TutorialController do
   describe "evaluate_input" do
     it "returns an error message if input code has the wrong number of arguments" do
       controller = TutorialController.new
-      expect(controller.evaluate_input("[1,2][]")).to eq("The argument is not correct: wrong number of arguments (0 for 1..2)")
+      expect(controller.evaluate_input("[1,2][]")).to eq("Parece que você cometeu um erro de argumento. Tente de novo!")
     end
 
     it "should evaluate if input code can be converted into string" do

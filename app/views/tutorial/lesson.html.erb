@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Tutorial</title>
+</head>
+<body>
+<div id="wrap">
+  <div id="masthead"><h1>Vamos aprender Ruby?</h1></div>
+  <div id="container">
+    <div id="sidebar">
+      <h1>Olá, mundo!</h1>
+       <div id="navcontainer">
+          <p>Vamos começar mostrando algumas mensagens na tela</p>
+          <p>Digite “Olá, mundo” no campo menor e, em seguida, clique no botão executar.
+             Não esqueça de colocar a frase entre aspas.</p>
+          <p>Observe o que acontece no campo superior</p>
+          <p>Agora, digite seu nome entre aspas e, mais uma vez, clique no botão para executar o código. Por  exemplo: “Fulano”</p>
+          <p>Você verá que, nos dois exemplos, as aspas desapareceram.
+             Isso ocorre porque, na linguagem Ruby, esses sinais (“  “) são um comando para imprimir mensagens na tela.
+             Essas mensagens são chamadas de Strings.
+          </p>
+          <p>Quer saber o que é uma String? Clique aqui.</p>
+       </div>
+    </div>
+    <div id="content">
+      <h1>Content</h1>
+      <div>
+        <p>
+          <%= text_area_tag(:text, @result, :cols => "60%", :rows => "20%", :disabled=>true) %><br>
+        </p>
+      </div>
+
+      </br>
+
+      <div>
+        <%= form_tag do  %>
+            <%= text_area_tag :text, "", :cols => "60%", :rows => "2%" %></br>
+            <%= submit_tag 'Executar' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  <a href="#">homepage</a> | <a href="mailto:denise@mitchinson.net">contact</a> | &copy; 2007 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |  Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>
+</div>
+</body>
+</html>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-root 'tutorial#run'
+#get (controller # action/method)
+root 'tutorial#start'
+
+#post (controller #  method)
+
 post '/' => 'tutorial#run'
 
 
