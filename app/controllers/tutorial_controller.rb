@@ -6,9 +6,9 @@ class TutorialController < ApplicationController
     @input  = params["text"].to_s
 
     if @input.empty?
-      @result = "Empty value, try again"
+      @result = "Digite o código no campo abaixo."
     elsif contains_evil_codes?(@input)
-      @result = "You are a hacker"
+      @result = "O comando que você digitou não é válido neste tutorial!"
     else
       @result = evaluate_input(@input)
     end
@@ -24,11 +24,11 @@ class TutorialController < ApplicationController
     begin
       eval(input)
     rescue SyntaxError => syntax_error
-      " The syntax is not correct : " + syntax_error.message
+      "Ups! Você digitou errado. Veja o exemplo ao lado e tente de novo."
     rescue ArgumentError => argument_error
-      "The argument is not correct: " + argument_error.message
+      "Parece que você cometeu um erro de argumento. Tente de novo!"
     rescue StandardError => standard_error
-      "Error running script: " + standard_error.message
+      "Ocorreu um erro ao rodar o script. Tente outra vez."
     end
   end
 end
