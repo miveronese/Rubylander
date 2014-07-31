@@ -5,7 +5,7 @@ describe TutorialController do
   describe "contains_evil_codes?" do
     it  "should block evil code" do
       controller = TutorialController.new
-      expect(controller.contains_evil_codes?("mkdir")).to be true
+      expect(controller.contains_evil_codes?("`mkdir`")).to be true
     end
 
     it "should allow code that is not evil" do

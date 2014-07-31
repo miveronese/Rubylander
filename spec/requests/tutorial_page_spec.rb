@@ -18,8 +18,8 @@ RSpec.describe "tutorial page", :type => :request do
 
   it "should show a message informing that the user are hacker" do
 
-    post "/", :text=> "mkdir"
-    assert_select "textarea[id=\"text\"]", "O comando que você digitou não é válido neste tutorial!"
+    post "/", :text=> "`ls`"
+    assert_select "textarea[id=\"text\"]", "Há! Você é um hacker!"
   end
 
 end

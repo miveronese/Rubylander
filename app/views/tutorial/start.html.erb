@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Tutorial</title>
+</head>
+<body>
+<div id="wrap">
+    <div id="masthead"><h1>Vamos aprender Ruby?</h1></div>
+    <div id="container">
+    <div id="menu">
+      <ul>
+        <li>
+          <a href="/" title="" class="current">Home</a>
+        </li>
+        <li>
+        <a href="" title="">Quem somos</a>
+        </li>
+        <li>
+        <a href="" title="">Contato</a>
+        </li>
+      </ul>
+    </div>
+        <div id="sidebar">
+            <h1>Bem-vind@ ao nosso tutorial!</h1>
+          <div id="navcontainer">
+            <p>Aqui você irá aprender os conceitos básicos </br>da linguagem Ruby. Vai descobrir
+               como executar </br>um código e a maneira correta de declarar variáveis,
+              escrever <i>arrays</i>, laços e funções.
+            </p>
+            <p>Não entendeu o que significam essas expressões? Não tem problema! Este tutorial
+               também foi criado pensando em quem ainda não tem noções </br>de programação e quer programar em Ruby.</p>
+            <p>Vamos começar? Clique no botão avançar para ir para a primeira lição.</p>
+
+           
+   
+        <%= link_to 'Avançar', "/tutorial/lessons/1" %>
+   
+
+       
+
+          </div>
+        </div>
+        <div id="content">
+             <h1></h1>
+             <div>
+                 <p>
+                   <%= text_area_tag(:text, @result, :cols => "60%", :rows => "20%", :disabled=>true) %><br>
+                 </p>
+             </div>
+
+             </br>
+
+            <div>
+                <%= form_tag do  %>
+                <%= text_area_tag :text, "", :cols => "60%", :rows => "2%" %></br>
+                <%= submit_tag 'Executar' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <a href="#"></a> <a href=""></a> &copy; 2014 Hakuna Matata Ltda. | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> |  Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>
+</div>
+</body>
+</html>
+
+
+
+

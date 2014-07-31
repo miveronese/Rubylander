@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-#get (controller # action/method)
-root 'tutorial#start'
+  #get (controller # method)
 
-#post (controller #  method)
+  root 'tutorial#start'
+  get 'tutorial/lessons/:id', to: 'tutorial#start' 
 
-post '/' => 'tutorial#run'
+
+  #post (controller #  method)
+
+  post '/' => 'tutorial#run'
+  post 'tutorial/lessons/:id' => 'tutorial#run'
 
 
   # resources :lessons
