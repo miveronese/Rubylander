@@ -2,9 +2,22 @@ class TutorialController < ApplicationController
 
   # attr_accessor :input, :result
 
+  LESSONS = {
+      '1' => Lesson.new(
+          :title => "Lesson 1", :content => "Some Html"),
+      '2' => Lesson.new(:title => "Lesson 2", :content => "Some Html"),
+  }
 
   def start
-    render "tutorial"
+   @lesson = LESSONS[params[:id]]
+   # @title = @lesson.title
+   # @content = @lesson.content
+
+    #@lesson  = Lesson.order("id").page(params[:id])
+    #puts ("Id page :#{@lesson}")
+    #@title   = Lesson.pluck(:title)
+    #@content = Lesson.pluck(:content)
+    render "start"
   end
 
 
@@ -18,7 +31,7 @@ class TutorialController < ApplicationController
     else
       @result = evaluate_input(@input)
     end
-    render "tutorial"
+    render "start"
   end
 
   def contains_evil_codes?(input)
