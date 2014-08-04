@@ -7,6 +7,19 @@
 <div id="wrap">
     <div id="masthead"><h1>Vamos aprender Ruby?</h1></div>
     <div id="container">
+        <div id="menu">
+          <ul>
+            <li>
+              <a href="/" title="" class="current">Home</a>
+            </li>
+            <li>
+              <a href="" title="">Quem somos</a>
+            </li>
+            <li>
+              <a href="" title="">Contato</a>
+            </li>
+          </ul>
+        </div>
         <div id="sidebar">
             <h1>Bem-vindo ao nosso tutorial!</h1>
           <div id="navcontainer">
@@ -17,6 +30,7 @@
             <p>Não entendeu o que significam essas expressões? Não tem problema! Este tutorial
                também foi criado pensando em quem ainda não tem noções </br>de programação e quer programar em Ruby.</p>
             <p>Vamos começar? Clique no botão avançar para ir para a primeira lição.</p>
+            <%= link_to 'Avançar', "/tutorial/lessons/1" %>
           </div>
         </div>
         <div id="content">

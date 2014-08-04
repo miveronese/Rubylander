@@ -2,28 +2,22 @@ class TutorialController < ApplicationController
 
   # attr_accessor :input, :result
 
-  LESSONS = {
-      '1' => Lesson.new(
-          :title => "Lesson 1", :content => "Some Html"),
-      '2' => Lesson.new(:title => "Lesson 2", :content => "Some Html"),
-  }
-
   def start
-   @lesson = LESSONS[params[:id]]
-   # @title = @lesson.title
-   # @content = @lesson.content
-
-    #@lesson  = Lesson.order("id").page(params[:id])
-    #puts ("Id page :#{@lesson}")
-    #@title   = Lesson.pluck(:title)
-    #@content = Lesson.pluck(:content)
-    render "start"
+     link_to_id = params[:id]
+     lesson = Lesson.find_by_id(link_to_id.to_i)
+     if lesson.nil?
+       render 'start'
+     else
+       puts "SEEDS - Lesson: #{lesson.title}"
+       @title = lesson.title
+       @content = lesson.content
+       render "lessons_" + link_to_id
+     end
   end
 
 
   def run
     @input  = params["text"].to_s
-
     if @input.empty?
       @result = "Digite o código no campo abaixo."
     elsif contains_evil_codes?(@input)

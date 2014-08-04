@@ -1,6 +1,6 @@
-class CreateLesson < ActiveRecord::Migration
+class CreateLessons < ActiveRecord::Migration
   def change
-    create_table :lesson do |t|
+    create_table :lessons do |t|
       t.string :title
       t.text :content
 
