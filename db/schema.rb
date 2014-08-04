@@ -20,4 +20,10 @@ ActiveRecord::Schema.define(version: 20140729155011) do
     t.datetime "updated_at"
   end
 
+  create_table "lessons", force: true do |t|
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
