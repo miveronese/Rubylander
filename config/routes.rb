@@ -2,13 +2,14 @@ Rails.application.routes.draw do
 
 #get (controller # action/method)
 root 'tutorial#start'
+get 'tutorial/lessons/:id', to: 'tutorial#start'
 
 #post (controller #  method)
-
 post '/' => 'tutorial#run'
+post 'tutorial/lessons/:id' => 'tutorial#run'
 
 
-  # resources :lessons
+# resources :lessons
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
