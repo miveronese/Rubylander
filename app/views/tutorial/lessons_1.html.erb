@@ -7,11 +7,25 @@
 <div id="wrap">
   <div id="masthead"><h1>Vamos aprender Ruby?</h1></div>
   <div id="container">
+    <div id="menu">
+      <ul>
+        <li>
+          <a href="/" title="" class="current">Home</a>
+        </li>
+        <li>
+          <a href="" title="">Quem somos</a>
+        </li>
+        <li>
+          <a href="" title="">Contato</a>
+        </li>
+      </ul>
+    </div>
     <div id="sidebar">
-      <h1><%=@title[1]%></h1>
+      <h1><%= raw @title %></h1>
        <div id="navcontainer">
-         <%=@content[1]%>
+         <%= raw @content %>
        </div>
+      <%= link_to 'Avançar', "/tutorial/lessons/2" %>
     </div>
     <div id="content">
       <h1>Content</h1>
