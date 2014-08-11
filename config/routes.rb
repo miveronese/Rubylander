@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 #get (controller # action/method)
-root 'tutorial#start'
+root 'tutorial#home'
 get 'tutorial/lessons/:id', to: 'tutorial#start'
 
 #post (controller #  method)

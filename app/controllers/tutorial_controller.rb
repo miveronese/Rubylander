@@ -2,6 +2,9 @@ class TutorialController < ApplicationController
 
   # attr_accessor :input, :result
 
+  def home
+  end
+
   def start
      link_to_id = params[:id]
      lesson = Lesson.find_by_id(link_to_id.to_i)
