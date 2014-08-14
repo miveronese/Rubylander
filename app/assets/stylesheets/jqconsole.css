@@ -7,6 +7,7 @@
 }
 pre {
     background-color: black;
+    color: #ccc;
 }
 /* The inner console element. */
 .jqconsole {
@@ -18,7 +19,7 @@ pre {
 }
 /* The cursor color when the console looses focus. */
 .jqconsole-blurred .jqconsole-cursor {
-    background-color: #666;
+    background-color: #ccc;
 }
 /* The current prompt text color */
 .jqconsole-prompt {
