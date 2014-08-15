@@ -1,16 +1,20 @@
 var tutorial = {
-  title: "Javascript Values",
-  language: "javascript",
+  title: "Ruby Values",
+  language: "ruby",
   steps: [
     {
-      message: "Javascript values are either numbers, strings, objects, arrays, booleans." +
-        "Let's start with numbers. Numbers can be integers like 1, 2 or 5000 or floating point." +
+      //"Javascript values are either numbers, strings, objects, arrays, booleans." +
+      message: "Let's start with numbers. Numbers can be integers like 1, 2 or 5000 or floating point." +
         "For example 1.1, 2.111 and so forth. Try to add 1 + 2.",
       result: 3
     },
     {
       message: "OK, great. How about adding two floats 1.1 and 2.3",
       result: 3.4
+    },
+    {
+      message: "Next. You could do a number multiplication something like 5*5 ",
+      result: 25
     }
   ]
 };
@@ -22,7 +26,7 @@ $(function () {
 
   var jsrepl = new JSREPL({  
     input: function() {   
-      console.log("INPUT WANTED");     
+      //console.log("INPUT WANTED");     
     },  
     output: function(s) {
       jqconsole.Write(s + '\n', 'jqconsole-output');
@@ -48,7 +52,7 @@ $(function () {
     var step = tutorial.steps[stepNumber];
 
     // Print the message
-    jqconsole.Write(step.message + '\n');
+    $('div#messages').text(step.message);
 
     // when the user hits enter the following function gets called
     jqconsole.Prompt(true, function (input) {
@@ -61,9 +65,9 @@ $(function () {
       // lastResult contains now the result of the eval
       setTimeout(function() {
         if (lastResult == step.result) {
-          runStep(stepNumber + 1);
+           runStep(stepNumber + 1);          
         } else {
-          jqconsole.Write("sorry not correct. please try again. \n")
+          jqconsole.Write("Sorry is not correct. Please try again. \n")
           runStep(stepNumber)
         }        
       }, 100);
