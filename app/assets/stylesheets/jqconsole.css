@@ -1,9 +1,22 @@
 /* The console container element */
+#box { 
+  background: white; 
+  height: 600px;
+  width: 600px; 
+}
 #console {
   position: absolute;
   width: 400px;
   height: 500px;
+  float:left;
   background-color: black;
+}
+#messages {
+  position: center;
+  width: 200px;
+  height: 500px;
+  float:right;
+  background-color: white;
 }
 pre {
     background-color: black;

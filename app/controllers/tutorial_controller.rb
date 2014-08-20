@@ -3,10 +3,6 @@ class TutorialController < ApplicationController
   # attr_accessor :input, :result
 
   def home
-  #   file = File.read('test_json.json')
-  #   data_hash = JSON.parse(file)
-  #   console.log( data_hash['title'] => "Ruby In Rails") 
-  #   puts data_hash['posts'] => {"1"=>"strftime-time-format-in-ruby", "2"=>"what-is-gemset"} 
   end
 
   def start
