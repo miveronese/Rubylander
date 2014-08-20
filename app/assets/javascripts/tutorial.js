@@ -50,7 +50,13 @@ $(function () {
     // get the object for the step for the given step number
     // so it contains { message: "....", result: ... }
     var step = tutorial.steps[stepNumber];
-
+    
+    //divided the scrreen getting the total of the width of the main div
+    $(function(){
+       var total = $("#container").width();
+       $("#console").css({width: Math.round(total/2)+"px"});
+       $("#messages").css({width: Math.round(total/2)+"px"});
+    });
     // Print the message
     $('div#messages').text(step.message);
 

@@ -1,21 +1,20 @@
 /* The console container element */
-#box { 
+#container { 
   background: white; 
   height: 600px;
-  width: 600px; 
+  width: 800px; 
 }
 #console {
   position: absolute;
-  width: 400px;
   height: 500px;
   float:left;
   background-color: black;
 }
 #messages {
-  position: center;
-  width: 200px;
+  position: relative;
   height: 500px;
   float:right;
+  left: 40px; /* something like you "tab" the text */
   background-color: white;
 }
 pre {
