@@ -1,10 +1,68 @@
 /* The console container element */
-#console {
-  position: absolute;
-  width: 400px;
-  height: 500px;
-  background-color: black;
+
+
+
+
+.container{
+    position:relative;
+    float: left;
+    width: 37%;
+    height: 450px;
+    background-color: white;
+    margin-left:2%;
+    margin-right:1%;
+    padding-top:40px;
+/*    padding-left: 10px;
+*/    
+    font-size:12px;
+    border-right: 1px solid #f6f5f0;
+    border-left: 1px solid #f6f5f0;
+    text-align: left;
+    
+/*    font-family: "Open Sans","Hevetica Neue","Helvetica",sans-serif;
+*/
+
 }
+
+
+#messages {
+    /*position:relative;
+    float: left;
+    width: 37%;
+    height: 450px;
+    background-color: white;
+    margin-left:2%;
+    margin-right:1%;
+    padding-top:40px;*/
+    padding-left: 10px;
+/*    padding-right: 25px;
+*/   /* font-size:12px;
+    border-right: 1px solid #f6f5f0;
+    border-left: 1px solid #f6f5f0;
+    text-align: left;*/
+    
+/*    font-family: "Open Sans","Hevetica Neue","Helvetica",sans-serif;
+*/
+
+}
+
+#btn{
+
+  padding-top:300px;
+  padding-left: 180px;
+}
+
+#console {
+      position:relative;
+      float: right;
+      width: 57%;
+      height: 500px;
+      margin-right:2%;
+      background-color: black;
+      border-right: 1px solid #f6f5f0;
+
+}
+
 pre {
     background-color: black;
     color: #ccc;
@@ -12,6 +70,8 @@ pre {
 /* The inner console element. */
 .jqconsole {
     padding: 10px;
+    padding-left: 25px;
+    padding-top:25px;
 }
 /* The cursor. */
 .jqconsole-cursor {

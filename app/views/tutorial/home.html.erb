@@ -1,46 +1,14 @@
-<div id="console"></div>
-<<<<<<< HEAD
+<div class ="container">
+	<div id="messages">
+	</div>
+	
+	<div id = "btn"> 
+	<button id="submit" >Next</button>
+	</div>
+</div>
 
-<script>
-  $(function () {
-    var jqconsole = $('#console').jqconsole('Welcome to the tutorial\n', '>>> ');
-
-    var jsrepl = new JSREPL({  
-      input: function(f) {   
-        console.log("INPUT WANTED");     
-      },  
-      output: function(s) {
-        jqconsole.Write(s + '\n', 'jqconsole-output');
-      },
-      result: function(r) {
-        jqconsole.Write(r + '\n', 'jqconsole-result');
-      }
-      // error: errorCallback,  
-      // progress: progressCallback,  
-      // timeout: {  
-      //   time: 30000,  
-      //   callback: timeoutCallback  
-      // }  
-    }); 
-
-    function startPrompt() {
-      jqconsole.Prompt(true, function (input) {
-        jsrepl.eval(input);
-        startPrompt();
-      });
-    }
-
-    jsrepl.loadLanguage('ruby', function () {  
-      jqconsole.Write('Interpreter loaded\n\n');  
-      startPrompt();
-    });
-  });
-
-
-</script>
+<div id="console">
+</div>
 
 
 
-=======
-<div id="messages"></div>
->>>>>>> a6d1cb8261bb61bbb14eacf3e17a7ea4d731ea41
