@@ -3,6 +3,7 @@ class TutorialController < ApplicationController
   # attr_accessor :input, :result
 
   def home
+    raise
   end
 
   def start
