@@ -7,34 +7,29 @@ var start = {
   preface: "It's time to learn Ruby. balblalblaal balblalblaal balblalblaal balblalblaal balblalblaal"
 };
 
-var tutorial = {
-  title: "",
-  language: "ruby",
-  steps: [
-    {
-      message: "Let's start with numbers. Numbers can be integers like 1, 2 or 5000 or floating point." +
-        "For example 1.1, 2.111 and so forth. Try to add 1 + 2.",
-      result: 3
-    },
-    {
-      message: "OK, great. How about adding two floats 1.1 and 2.3?",
-      result: 3.4
-    },
-    {
-      message: "Next. You could do a number multiplication something like 5*5 ",
-      result: 25
-    }
-  ]
-};
-
+// var tutorial = {
+// //   title: "",
+//   language: "ruby"
+//   // steps: [
+//   //   {
+//   //     message: "Let's start with numbers. Numbers can be integers like 1, 2 or 5000 or floating point." +
+//   //       "For example 1.1, 2.111 and so forth. Try to add 1 + 2.",
+//   //     result: 3
+//   //   },
+//   //   {
+//   //     message: "OK, great. How about adding two floats 1.1 and 2.3?",
+//   //     result: 3.4
+//   //   },
+//   //   {
+//   //     message: "Next. You could do a number multiplication something like 5*5 ",
+//   //     result: 25
+//   //   }
+//   // ]
+// };
 
 $(function () {
 
-      $('#messages').text(start.preface);
-
-      $('#submit').click(function(){
-          $(this).hide();
-
+      // $('#messages').text(start.preface);
 
         var jqconsole = $('#console').jqconsole(greet.welcome + '\n', '>>> ');
         var lastResult;
@@ -53,9 +48,10 @@ $(function () {
 
 
         function runStep(stepNumber) {
-          var step = tutorial.steps[stepNumber];
+
+          // var step = lesson.steps[stepNumber];
          
-          $('#messages').text(step.message);
+          $('#messages').text(step.text);
 
           jqconsole.Prompt(true, function (input) {
             jsrepl.eval(input);
@@ -72,14 +68,12 @@ $(function () {
         }
 
 
-        jsrepl.loadLanguage(tutorial.language, function () {  
-        jqconsole.Write(':) \n\n');
+        jsrepl.loadLanguage("ruby", function () {  
+          jqconsole.Write(':) \n\n');
         
+          //setTimeout(function() { runStep(0); }, 10);
           runStep(0);
         });
-
-      });
-
 
 });
     

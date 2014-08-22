@@ -3,7 +3,16 @@ class TutorialController < ApplicationController
   # attr_accessor :input, :result
 
   def home
-    raise
+    # lesson = Lesson.find(params[:id])
+    # lesson = Lesson.pluck
+    # puts "this is pluck:" + lesson.to_s
+    # steps = lesson.step
+    # raise
+
+    @lesson_data = Lesson.pluck
+
+
+    # {|l| lesson.step // text e result  }
   end
 
   def start
