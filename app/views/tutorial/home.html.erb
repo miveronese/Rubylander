@@ -5,11 +5,17 @@
 	<!-- <div id = "btn"> 
 	<button id="submit" >Next</button>
 	</div> -->
+
+	<div id="next-lesson">
+	</div>
+
 </div>
 
 <script type="text/javascript">
-// var lesson = <%= @lesson_data.to_json %>;
-var lesson = "opa lele"
+	$(function() {
+		var lesson = <%= @lesson_data.to_json(include: :steps).html_safe %>;
+		startTutorial(lesson);	
+	});
 </script>
 
 

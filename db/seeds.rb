@@ -12,24 +12,19 @@ lesson = Lesson.create(title: "olllaaaa ", description: "bla")
 
 lesson.steps.create(
 result: "Hello World",
-text: "balblalbalablblbal")
+text: "Let's start saying hello to the world... ")
 
 lesson.steps.create(
 	result: 42,
-text: "bleleleleleleleel")
+text: "Yes!! Now let's do some mathematical operations...")
 
 
 lesson.steps.create(
 result: 42,
-text:"<p>bliilhllhlhilhlihi")
+text:"<p>You can also....")
 
 
 lesson.steps.create(
 	result: 99,
 text: "blublbublulblubluu")
 
-# Lesson.create(title:"Parabéns!!",content:
-# "<p> Você acaba de concluir seus primeiros passos em Ruby!</p>")
-
-# Lesson.create(title:"Aguarde novidades!!",content:
-# "<p> Em breve, teremos mais lições e um terminal decente! :D :D</p>")

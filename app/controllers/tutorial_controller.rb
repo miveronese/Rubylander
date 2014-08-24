@@ -2,42 +2,36 @@ class TutorialController < ApplicationController
 
   # attr_accessor :input, :result
 
-  def home
-    # lesson = Lesson.find(params[:id])
-    # lesson = Lesson.pluck
-    # puts "this is pluck:" + lesson.to_s
-    # steps = lesson.step
-    # raise
-
-    @lesson_data = Lesson.pluck
-
-
-    # {|l| lesson.step // text e result  }
+  # /
+  # shows the FIRST LESSON on the database
+  def home  
+    @lesson_data = Lesson.first #Lesson.find(params[:id] doesn't work )
+    puts "this is the result" + @lesson_data.to_s
   end
 
-  def start
-     link_to_id = params[:id]
-     lesson = Lesson.find_by_id(link_to_id.to_i)
-     if lesson.nil?
-       render 'start'
-     else
-       @title = lesson.title
-       @content = lesson.content
-       render "lessons_" + link_to_id
-     end
-  end
+  # def start
+  #    link_to_id = params[:id]
+  #    lesson = Lesson.find_by_id(link_to_id.to_i)
+  #    if lesson.nil?
+  #      render 'start'
+  #    else
+  #      @title = lesson.title
+  #      @content = lesson.content
+  #      render "lessons_" + link_to_id
+  #    end
+  # end
 
 
-  def run
-    @input  = params["text"].to_s
-    if @input.empty?
-      @result = "Digite o código no campo abaixo."
-    # elsif contains_evil_codes?(@input)
-    #   @result = "O comando que você digitou não é válido neste tutorial!"
-    # else
-    #   @result = evaluate_input(@input)
-    end
-    render "start"
+  # def run
+  #   @input  = params["text"].to_s
+  #   if @input.empty?
+  #     @result = "Digite o código no campo abaixo."
+  #   # elsif contains_evil_codes?(@input)
+  #   #   @result = "O comando que você digitou não é válido neste tutorial!"
+  #   # else
+  #   #   @result = evaluate_input(@input)
+  #   end
+  #   render "start"
   end
 
   # def contains_evil_codes?(input)
@@ -58,4 +52,4 @@ class TutorialController < ApplicationController
   #   end
   # end
 
-end
+# end
