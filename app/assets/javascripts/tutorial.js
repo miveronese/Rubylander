@@ -23,9 +23,10 @@ function runStep(lesson, stepNumber) {
     jsrepl.eval(input);
 
     setTimeout(function() {
+      console.log(lastResult + ", " + step.result);
       if (lastResult == step.result) {
-        // NOW WE NEED TO CHANGE THIS FUNCTION, SO
-        // if if is the last step, show the next button
+        // NOW WE NEED TO CHANGE THIS FUNCTION IF WE WANT MORE THEN LESSON 1. SO
+        // IT COULD BE SOMETHING LIKE: IF iT is the last step, show the next button
         // if(stepNumber == lesson.steps.length-1 (thats ugly) (or lesson.steps.last???) 
     
         // } else {
@@ -51,10 +52,11 @@ function startTutorial(lesson) {
       jqconsole.Write(s + '\n', 'jqconsole-output');
     },
     result: function(result) {
-                // lastResult = result;
+      lastResult = result;
       jqconsole.Write(result + '\n', 'jqconsole-result');
     } 
   }); 
+
 
   jsrepl.loadLanguage("ruby", function() {  
     jqconsole.Write(":) \n" );  

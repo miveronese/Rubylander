@@ -11,7 +11,7 @@
 lesson = Lesson.create(title: "olllaaaa ", description: "bla")
 
 lesson.steps.create(
-result: "Hello World",
+result: "\"Hello World\"",
 text: "Let's start saying hello to the world... ")
 
 lesson.steps.create(
@@ -26,5 +26,5 @@ text:"<p>You can also....")
 
 lesson.steps.create(
 	result: 99,
-text: "blublbublulblubluu")
+text: "And...")
 
