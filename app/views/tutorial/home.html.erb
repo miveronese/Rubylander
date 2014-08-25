@@ -1,11 +1,14 @@
 <div class ="container">
 	<div id="messages">
 	</div>
-	
-	<div id = "btn"> 
-	<button id="submit" >Next</button>
-	</div>
 </div>
+
+<script type="text/javascript">
+	$(function() {
+		var lesson = <%= @lesson_data%>;
+		startTutorial(lesson);	
+	});
+</script>
 
 
 <div id="console">

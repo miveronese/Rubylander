@@ -8,28 +8,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-lesson = Lesson.create(title: "Ola, mundo", description: "bla")
 
+lesson = Lesson.create(title: "olllaaaa ", description: "bla")
 lesson.steps.create(
-result: "Hello World",
-text: "bla bla")
+result: "\"Hello World\"",
+text: "Let's start saying hello to the world... ")
 
 lesson.steps.create(
 	result: 42,
-text: "ble ble")
+text: "Yes!! Now let's do some mathematical operations...")
 
 
 lesson.steps.create(
 result: 42,
-text:"bli bli")
+text:"<p>You can also....")
 
 
 lesson.steps.create(
 	result: 99,
-text: "blu blu")
+text: "And...")
 
-# Lesson.create(title:"Parabéns!!",content:
-# "<p> Você acaba de concluir seus primeiros passos em Ruby!</p>")
+lesson_2 = Lesson.create(title: "oi ", description: "bla 2")
+lesson_2.steps.create(
+result: 30,
+text:"You....")
 
-# Lesson.create(title:"Aguarde novidades!!",content:
-# "<p> Em breve, teremos mais lições e um terminal decente! :D :D</p>")
+
+
