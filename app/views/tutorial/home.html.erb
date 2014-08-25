@@ -2,18 +2,19 @@
 	<div id="messages">
 	</div>
 	
-<!-- 	<div id = "btn"> 
-	<button id="submit" >Next</button>
+<!-- <div id = "btn"> 
+	<button id="submit" >Start</button>
 	</div> -->
 
 	<!-- <div id="next-lesson">
+	<button> Next lesson</button>
 	</div> -->
 
 </div>
 
 <script type="text/javascript">
 	$(function() {
-		var lesson = <%= @lesson_data.to_json(include: :steps).html_safe %>;
+		var lesson = <%= @lesson_data %>;
 		startTutorial(lesson);	
 	});
 </script>

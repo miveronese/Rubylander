@@ -1,4 +1,5 @@
 class Lesson < ActiveRecord::Base
-	has_many :steps
 	
+	belongs_to :tutorial
+	has_many :steps	
 end

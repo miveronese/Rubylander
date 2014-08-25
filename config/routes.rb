@@ -5,8 +5,8 @@ root 'tutorial#home'
 get 'tutorial/lessons/:id', to: 'tutorial#start'
 
 #post (controller #  method)
-post '/' => 'tutorial#run'
-post 'tutorial/lessons/:id' => 'tutorial#run'
+# post '/' => 'tutorial#run'
+# post 'tutorial/lessons/:id' => 'tutorial#run'
 
 
 # resources :lessons

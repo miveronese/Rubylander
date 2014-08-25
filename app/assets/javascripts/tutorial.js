@@ -15,8 +15,11 @@ var lastResult;
 var jsrepl;
 var jqconsole;
 
+
 function runStep(lesson, stepNumber) {
   var step = lesson.steps[stepNumber];
+  // var step = lesson[1].steps[stepNumber];
+
        
   $('#messages').text(step.text);
   jqconsole.Prompt(true, function (input) {
@@ -31,7 +34,13 @@ function runStep(lesson, stepNumber) {
     
         // } else {
          // else run the next step
-         runStep(lesson, stepNumber + 1);
+         if (stepNumber == lesson.steps.length - 1) {
+            // TODO: go to next lesson or do something else
+            // URL for next lesson is created in the controller by calling url_for(...)
+            // window.location = new_url;
+         } else {
+          runStep(lesson, stepNumber + 1);          
+         }
        // }
 
       } else {
@@ -45,7 +54,10 @@ function runStep(lesson, stepNumber) {
 function startTutorial(lesson) {
   jqconsole = $('#console').jqconsole(greet.welcome + '\n', '>>> ');
 
-  jsrepl = new JSREPL({  
+  jsrepl = new JSREPL({
+    error: function(e) {
+      jqconsole.Write(e);
+    }, 
     input: function() {   
     },  
     output: function(s) {
