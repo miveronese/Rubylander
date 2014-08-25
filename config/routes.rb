@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 #get (controller # action/method)
 root 'tutorial#home'
 get 'tutorial/lessons/:id', to: 'tutorial#start'
+get '/lessons', to: 'lessons#index'
 
 #post (controller #  method)
 post '/' => 'tutorial#run'
 post 'tutorial/lessons/:id' => 'tutorial#run'
+
+
 
 
 # resources :lessons

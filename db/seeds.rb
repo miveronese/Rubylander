@@ -8,57 +8,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-lesson = Lesson.create(title: "Olá, mundo", description: "bla")
+lesson = Lesson.create(title: "Ola, mundo", description: "bla")
 
 lesson.steps.create(
 result: "Hello World",
-text: "<p> Vamos começar mostrando algumas mensagens na tela </p>
-<p> Digite “Olá, mundo” no campo menor e, em seguida, clique no botão executar.
-Não esqueça de colocar a frase entre aspas.</p>
-<p>Observe o que acontece no campo superior</p>
-<p>Agora, digite seu nome entre aspas e, mais uma vez, 
-clique no botão para executar o código. Por  exemplo: “Fulano”</p>
-<p>Você verá que, nos dois exemplos, as aspas desapareceram.
-Isso ocorre porque, na linguagem Ruby, esses sinais (“  “) são um comando para imprimir 
-mensagens na tela.Essas mensagens são chamadas de Strings.</p>
-<p>Quer saber o que é uma String?</p>")
+text: "bla bla")
 
 lesson.steps.create(
 	result: 42,
-text: "<p> Fazer cálculos matemáticos em Ruby pode muito simples.</p>
-<p>Experimente fazer uma conta, como se estivesse usando uma calculadora,
-e veja o resultado. Por exemplo:</p>
-<p>2+3</p>
-<p>Note que o sinal utilizado para divisão é '*' e o de multiplicação é '/'.
-E como estamos lidando com números, não precisamos usar as aspas (" ").</p>")
+text: "ble ble")
 
 
 lesson.steps.create(
 result: 42,
-text:"<p>Você também pode combinar diferentes operações matemáticas num 
-código só. Digite <b>2 + 5 * (3-1)/2</b>  e veja o que acontece.</p>
-<p> A ordem de solução foi a seguinte: primeiro parênteses, 
-depois multiplicação e divisão (na sequência em que aparecem) e 
-soma e subtração.</p>
-<p> É possível ainda calcular a potência de um número. Para obter o quadrado de 2, 
-digita-se <b>2 ** 2</b></p>
-<p>E para extrair a raiz quadrada, utiliza-se o método da classe Math:</p>
-<p><b>Math.sqrt(9)</b></p>")
+text:"bli bli")
 
 
 lesson.steps.create(
 	result: 99,
-text: "<p> Para organizar o seu código, deixando-o mais legível, você pode utilizar 
-<b>variáveis</b>!</p>
-<p>Você pode atribuir valores às variáveis. Digite o código abaixo e clique no botão
-Executar:</p>
-
-<p><b>nome = \"Seu nome\"</b></p>
-
-<p>Neste caso, criamos uma variável chamada <b>nome</b>, que contem 
-o valor \"Seu nome\".</p>
-
-<p>Experimente criar outras variáveis e execute o código para ver o resultado.</p>")
+text: "blu blu")
 
 # Lesson.create(title:"Parabéns!!",content:
 # "<p> Você acaba de concluir seus primeiros passos em Ruby!</p>")
