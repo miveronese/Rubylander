@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 root 'tutorial#home'
 get 'tutorial/lessons/:id', to: 'tutorial#start'
 get '/lessons', to: 'lessons#index'
+get '/lessons/:id' => 'lessons#show'
 
 #post (controller #  method)
-post '/' => 'tutorial#run'
-post 'tutorial/lessons/:id' => 'tutorial#run'
+# post '/' => 'tutorial#run'
+# post 'tutorial/lessons/:id' => 'tutorial#run'
 
 
 

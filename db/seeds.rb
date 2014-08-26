@@ -8,30 +8,32 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+lesson = Lesson.create(title: "Lesson 1 ", description: "this is lesson 1")
 
-lesson = Lesson.create(title: "olllaaaa ", description: "bla")
 lesson.steps.create(
 result: "\"Hello World\"",
-text: "Let's start saying hello to the world... ")
+text: "Let's start saying hello to the world...Type \"Hello World\" ")
 
 lesson.steps.create(
 	result: 42,
-text: "Yes!! Now let's do some mathematical operations...")
+text: "Yes!! Now let's do some mathematical operations...Type 42")
 
 
 lesson.steps.create(
 result: 42,
-text:"<p>You can also....")
+text:"<p>Type 42")
 
 
 lesson.steps.create(
 	result: 99,
-text: "And...")
+text: "Type 99")
 
-lesson_2 = Lesson.create(title: "oi ", description: "bla 2")
+lesson_2 = Lesson.create(title: "Lesson 2 ", description: "this is lesson 2")
 lesson_2.steps.create(
-result: 30,
-text:"You....")
+result: 22,
+text: "Type 22 ")
+
+
 
 
 
