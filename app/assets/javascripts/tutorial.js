@@ -15,12 +15,17 @@ var lastResult;
 var jsrepl;
 var jqconsole;
 
-
 function runStep(lesson, stepNumber) {
-  var step = lesson.steps[stepNumber];
-  // var step = lesson[1].steps[stepNumber]
-       
-  $('#messages').text(step.text);
+
+  var step = lesson.steps[stepNumber]
+   
+  if(stepNumber == lesson.steps.length){     
+    $('#messages').text("Congratulation! You completed the Lesson : "+lesson.title );  
+  }else{
+    $('#messages').text(step.text);
+  }
+
+
   jqconsole.Prompt(true, function (input) {
     jsrepl.eval(input);
 
@@ -33,13 +38,13 @@ function runStep(lesson, stepNumber) {
     
         // } else {
          // else run the next step
-         if (stepNumber == lesson[0].steps.length - 1) {
+         //if (stepNumber == lesson[0].steps.length - 1) {
             // TODO: go to next lesson or do something else
             // URL for next lesson is created in the controller by calling url_for(...)
             // window.location = new_url;
-         } else {
+         //} else {
           runStep(lesson, stepNumber + 1);          
-         }
+         //}
        // }
 
       } else {
@@ -71,12 +76,9 @@ function startTutorial() {
 
   jsrepl.loadLanguage("ruby", function() {  
     jqconsole.Write(":) \n" );  
-    //setTimeout(function() { runStep(0); }, 10);
     $.getJSON("/lessons/1", function (lesson){
         runStep(lesson, 0);
      });
-    
-
   });    
 }
 

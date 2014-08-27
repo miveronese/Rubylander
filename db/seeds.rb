@@ -8,7 +8,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-lesson = Lesson.create(title: "Lesson 1 ", description: "this is lesson 1")
+lesson = Lesson.create(title: "Lesson 1", description: "this is lesson 1")
 
 lesson.steps.create(
 result: "\"Hello World\"",
@@ -20,8 +20,8 @@ text: "Yes!! Now let's do some mathematical operations...Type 42")
 
 
 lesson.steps.create(
-result: 42,
-text:"<p>Type 42")
+result: 33,
+text:"<p>Type 33")
 
 
 lesson.steps.create(

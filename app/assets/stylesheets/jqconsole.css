@@ -8,43 +8,17 @@
     background-color: white;
     margin-left:2%;
     margin-right:1%;
-    padding-top:40px;
-/*    padding-left: 10px;
-*/    
+    padding-top:40px;   
     font-size:12px;
     border-right: 1px solid #f6f5f0;
     border-left: 1px solid #f6f5f0;
     text-align: left;
-    
-/*    font-family: "Open Sans","Hevetica Neue","Helvetica",sans-serif;
-*/
+}
 
-#messages {
-    /*position:relative;
-    float: left;
-    width: 37%;
-    height: 450px;
-    background-color: white;
-    margin-left:2%;
-    margin-right:1%;
-    padding-top:40px;*/
+#messages{
     padding-left: 10px;
-/*    padding-right: 25px;
-*/   /* font-size:12px;
-    border-right: 1px solid #f6f5f0;
-    border-left: 1px solid #f6f5f0;
-    text-align: left;*/
-    
-/*    font-family: "Open Sans","Hevetica Neue","Helvetica",sans-serif;
-*/
+}   
 
-}
-
-#btn{
-
-  padding-top:300px;
-  padding-left: 180px;
-}
 
 #console {
       position:relative;

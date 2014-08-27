@@ -1,5 +1,5 @@
 class Step < ActiveRecord::Base
-	belongs_to :lesson
+	belongs_to :lessons
 	serialize :result
 	
 	# def to_s
