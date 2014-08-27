@@ -18,6 +18,8 @@ var jqconsole;
 function runStep(lesson, stepNumber) {
 
   var step = lesson.steps[stepNumber]
+
+  $('#lesson_title').text(lesson.title);  
    
   if(stepNumber == lesson.steps.length){     
     $('#messages').text("Congratulation! You completed the Lesson : "+lesson.title );  

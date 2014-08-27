@@ -15,11 +15,13 @@
     text-align: left;
 }
 
+#lesson_title{
+    padding-left: 1px;
+}
 #messages{
     padding-left: 10px;
-}   
-
-
+} 
+   
 #console {
       position:relative;
       float: right;
