@@ -16,6 +16,7 @@ var jsrepl;
 var jqconsole;
 
 function runStep(lesson, stepNumber) {
+  var next_lesson_id = lesson.id+1;
 
   var step = lesson.steps[stepNumber]
 
@@ -23,9 +24,11 @@ function runStep(lesson, stepNumber) {
    
   if(stepNumber == lesson.steps.length){     
     $('#messages').text("Congratulation! You completed the Lesson : "+lesson.title );  
+    $('#next_lesson').html("<a href='/lessons/"+ next_lesson_id+"'>Next Lesson</a>");
   }else{
     $('#messages').text(step.text);
   }
+
 
 
   jqconsole.Prompt(true, function (input) {

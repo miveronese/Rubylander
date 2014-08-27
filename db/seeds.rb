@@ -11,22 +11,13 @@
 lesson = Lesson.create(title: "Lesson 1", description: "this is lesson 1")
 
 lesson.steps.create(
-result: "\"Hello World\"",
-text: "Let's start saying hello to the world...Type \"Hello World\" ")
+result: "\"hi\"",
+text: "Let's start saying hello to the world...Type \"hi\" ")
 
 lesson.steps.create(
 	result: 42,
 text: "Yes!! Now let's do some mathematical operations...Type 42")
 
-
-lesson.steps.create(
-result: 33,
-text:"<p>Type 33")
-
-
-lesson.steps.create(
-	result: 99,
-text: "Type 99")
 
 lesson_2 = Lesson.create(title: "Lesson 2 ", description: "this is lesson 2")
 lesson_2.steps.create(
