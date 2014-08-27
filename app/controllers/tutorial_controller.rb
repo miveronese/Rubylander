@@ -4,20 +4,39 @@ class TutorialController < ApplicationController
 
   
   def home  
-    # @lesson_data = Lesson.first.to_json(include: :steps).html_safe 
-    
-    @lesson_data = Lesson.find(params[:id]).to_json(include: :steps).html_safe 
+  
 
-    # TODO: include link for next lesson
+  # TODO: include link for next lesson
+  # TODO: if last lesson do something different
 
-    # TODO: if last lesson do something different
 
+    # option using map:
     # @lesson.steps.map {|step| { text: step.text, result: step.result }}
-    # raise
-  # @lesson_data = Lesson.all.to_json(include: :steps).html_safe
+  
+    # option using all:
+    # @lesson_data = Lesson.all.to_json(include: :steps).html_safe
+    # puts "this is lesson data" + @lesson_data
+
+    #option using id => ?
+    # @lesson_data = Lesson.find(params[:id]).to_json(include: :steps).html_safe 
+
+    #option using first
+    @lesson_data = Lesson.first.to_json(include: :steps).html_safe 
+    puts "this is lesson data" + @lesson_data
+    
+
+    # with new table course - doesn't work :(
+
+    # @course_data = Course.all.to_json(include: :lessons).html_safe
+    # @course_data = Course.all.to_json(include: :lessons, include: :steps)
+
+
+    #   puts "this is course data" + @course_data
   end
 
 
+
+  #old code
   # def start
   #    link_to_id = params[:id]
   #    lesson = Lesson.find_by_id(link_to_id.to_i)

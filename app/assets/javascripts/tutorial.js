@@ -7,10 +7,6 @@ var start = {
   preface: "Welcome to our tutorial. It's time to learn Ruby."
 };
 
-
-// option: these 3 variables also could be created inside startTutorial() 
-//and passed to runStep, 
-// instead of being a global. It avoids overriding other variables by accident.
 var lastResult;
 var jsrepl;
 var jqconsole;
@@ -18,9 +14,8 @@ var jqconsole;
 
 function runStep(lesson, stepNumber) {
   var step = lesson.steps[stepNumber];
-  // var step = lesson[1].steps[stepNumber];
-
-       
+  // var step = lesson[0].steps[stepNumber];
+  
   $('#messages').text(step.text);
   jqconsole.Prompt(true, function (input) {
     jsrepl.eval(input);
@@ -34,13 +29,13 @@ function runStep(lesson, stepNumber) {
     
         // } else {
          // else run the next step
-         if (stepNumber == lesson.steps.length - 1) {
-            // TODO: go to next lesson or do something else
-            // URL for next lesson is created in the controller by calling url_for(...)
-            // window.location = new_url;
-         } else {
+         // if (stepNumber == lesson.steps.length - 1) {
+         //    // TODO: go to next lesson or do something else
+         //    // URL for next lesson is created in the controller by calling url_for(...)
+         //    // window.location = new_url;
+         // } else {
           runStep(lesson, stepNumber + 1);          
-         }
+         // }
        // }
 
       } else {
@@ -73,7 +68,8 @@ function startTutorial(lesson) {
   jsrepl.loadLanguage("ruby", function() {  
     jqconsole.Write(":) \n" );  
     //setTimeout(function() { runStep(0); }, 10);
-    runStep(lesson, 0);
+    var lesson = $.getJSON("/lessons/1")
+    runStep(lesson, 0); 
   });    
 }
 

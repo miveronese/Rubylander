@@ -1,7 +1,25 @@
-<div id="sidebar">
-  <h1><%= raw @title %></h1>
-  <div id="navcontainer">
-    <%= raw @content %>
-     </div>
-     <%= link_to 'Avançar', "/tutorial/lessons/2" %>
+<div class ="container">
+	<div id="messages">
+	</div>
+	
+<!-- <div id = "btn"> 
+	<button id="submit" >Start</button>
+	</div> -->
+
+	<div id="next-lesson">
+	<br>
+	<%= link_to 'Next lesson', "/tutorial/lessons/2" %>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		var lesson = <%= @lesson_data %>;
+		startTutorial(lesson);	
+	});
+</script>
+
+
+<div id="console">
 </div>

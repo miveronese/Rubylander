@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+
+
+
 #get (controller # action/method)
 root 'tutorial#home'
-get 'tutorial/lessons/:id', to: 'tutorial#start'
+get 'courses/:course_id/:lesson_id', to: 'tutorial#home'
+
+
 
 #post (controller #  method)
 # post '/' => 'tutorial#run'

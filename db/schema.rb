@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140825150230) do
   end
 
   create_table "lessons", force: true do |t|
+    t.integer  "course_id"
     t.string   "title"
     t.string   "language"
     t.text     "description"
