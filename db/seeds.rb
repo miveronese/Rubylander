@@ -8,11 +8,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# course = Course.create (language: "English", programming_language: "Ruby")
-
-# course.lessons.create(title: "Lesson 1 ", description: "this is lesson 1").steps.create(result: "\"Hello World\"",
-# text: "Let's start saying hello to the world...Type \"Hello World\" ")
-
 lesson = Lesson.create(title: "Lesson 1 ", description: "this is lesson 1")
 
 
@@ -38,4 +33,8 @@ lesson_2 = Lesson.create(title: "Lesson 2 ", description: "this is lesson 2")
 lesson_2.steps.create(
 result: 22,
 text: "Type 22 ")
+
+
+
+
 
