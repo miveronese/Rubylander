@@ -1,4 +1,4 @@
-222
+
 var greet = {
   welcome: "Welcome to RubyLander!"
 };
@@ -10,12 +10,34 @@ var start = {
 var lastResult;
 var jsrepl;
 var jqconsole;
-
+var next_lesson_id;
 
 function runStep(lesson, stepNumber) {
-  var step = lesson.steps[stepNumber];
+  $('#button').hide();
 
-  $('#messages').text(step.text);
+  next_lesson_id = lesson.id + 1;
+
+  var step = lesson.steps[stepNumber]
+
+  $('#lesson_title').text(lesson.title);  
+   
+  // if (lessonNumber == course.lessons.lenght) {
+
+  //   $('#messages').text("You've finished all lessons in our course:" + course.title);
+  //   $('#next_course').html ("<a href ='link to other course/path " + next_couse_id +"' " ">Next Couse</a>");
+
+  // }else{
+
+        if(stepNumber == lesson.steps.length){     
+          $('#messages').text("Yay! Now you know two basic concepts of programming: strings and integers.Click on the button to start the next lesson"+ lesson.title );  
+          $('#button').show();
+          // $('#next_lesson').html("<a href= '/lessons/" + next_lesson_id + " ' >Next lesson</a>");
+        }else{
+          $('#messages').text(step.text);
+        }
+
+ // }
+
   jqconsole.Prompt(true, function (input) {
     jsrepl.eval(input);
 
@@ -32,6 +54,14 @@ function runStep(lesson, stepNumber) {
 }
 
 function startTutorial() {
+  $("#button").click(function() {
+    $.ajax({
+      url:"/lessons/" + next_lesson_id,
+      context:document.body      
+    }).done(function(lesson) {
+      runStep(lesson, 0);
+    });
+  });
 
   jqconsole = $('#console').jqconsole(greet.welcome + '\n', '>>> ');
 
@@ -53,8 +83,6 @@ function startTutorial() {
 
   jsrepl.loadLanguage("ruby", function() {  
     jqconsole.Write(":) \n" );  
-    //setTimeout(function() { runStep(0); }, 10);
-
     $.getJSON("/lessons/1", function(lesson){
         runStep(lesson, 0);
     });

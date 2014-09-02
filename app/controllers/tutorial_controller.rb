@@ -4,7 +4,6 @@ class TutorialController < ApplicationController
   # shows the FIRST LESSON on the database
   
   def home  
-
   # @lesson_data = Lesson.first.to_json(include: :steps).html_safe
    
     # @lesson_data = Lesson.find(params[:id]).to_json(include: :steps).html_safe

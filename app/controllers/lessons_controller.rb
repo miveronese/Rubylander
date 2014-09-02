@@ -8,3 +8,4 @@ class LessonsController < ApplicationController
 		render json: @lesson, include: :steps
 	end
 end
+
