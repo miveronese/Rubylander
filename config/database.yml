@@ -1,12 +1,17 @@
-# development:
-#   encoding: utf8
-#   adapter: mysql
-#   database: rubylander
-#   username: root
-#   password:
+development:
+  encoding: utf8
+  adapter: mysql
+  database: rubylander
+  username: root
+  password:
+
+test:
+  adapter: sqlite3
+  encoding: utf8
+  database: db/test.sqlite3
 
 
- # PostgreSQL. Versions 8.2 and up are supported.
+# PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -22,9 +27,9 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+#   # default: &default
+#   adapter: :postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+# pool: 5
