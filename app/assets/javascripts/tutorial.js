@@ -29,7 +29,7 @@ function runStep(lesson, stepNumber) {
   // }else{
 
         if(stepNumber == lesson.steps.length){     
-          $('#messages').text("Yay! Now you know two basic concepts of programming: strings and integers.Click on the button to start the next lesson"+ lesson.title );  
+          $('#messages').text("Yay! Now you know two basic concepts of programming: strings and integers.Click on the button to start the next lesson" );  
           $('#button').show();
           // $('#next_lesson').html("<a href= '/lessons/" + next_lesson_id + " ' >Next lesson</a>");
         }else{

@@ -8,75 +8,96 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
 lesson = Lesson.create(title: "Lesson 1 - Strings and Integers", description: "this is lesson 1")
 
 
 lesson.steps.create(
 result: "\"hello world\"",
-text: "<b>Strings</b>
+text: "Strings
 
-<p>Strings are a data type used in programming mainly to represent text.<p>
+Strings are a data type used in programming mainly to represent text.
 
-<p>To write a string we need to enclose the data in quotation marks (" "). 
-For example: \"This is a string\".</p> 
+To write a string we need to enclose the data in quotation marks (\" \"). 
+For example: \"This is a string\". 
 
-<p>Would you like to try?
-Type in the console the string <b>\"hello world\"</b> and see what happens.</p>")
+Would you like to try?
+Type in the console the string \"hello world\" and see what happens.")
 
 # result: "function(x) { return "Thats wrong!"; }"
 
 lesson.steps.create(
 	result: 25,
-text: "<b>Integers</b>
+text: "Integers
 
-<p>Strings are not the only data type. 
-There are also integers which are whole numbers.</p>
+Strings are not the only data type. 
+There are also integers which are whole numbers.
 
-<p>To write an integer you don't need to use the quotations marks (" ").
-Type the integer <b>25</b> in the console and see what happens.</p>")
+To write an integer you don't need to use the quotations marks (\" \").
+Type the integer 25 in the console and see what happens.")
 
 
 lesson.steps.create(
-result: 3,
-text:"<b>Calculation</b>
+result: 5,
+text:"Calculation
 
-<p>You can do a lot of mathematical operations with integers.
-The trick is to know the symbols and their meaning.<p>
+You can do a lot of mathematical operations with integers.
+The trick is to know the symbols and their meaning.
 
-<p>+ : addition</p>
-<p>- :subtraction</p>
-<p>* : multiplication<p/>
-<p>/ : division</p>
++ : addition
+- :subtraction
+* : multiplication
+/ : division
 
-<p>Now try to calculate <b>16 divided by 2 plus 4 minus 3 multiplied by 3</b>.</p>")
+Now try to calculate 20 divided by 4 plus.")
 
 
 lesson.steps.create(
 result: 8,
 text: "What if...
-<p>What happens if you write the numbers between quotations marks and try to do
-mathematical operations with them?</p>
+What happens if you write the numbers between quotations marks and try to do
+mathematical operations with them?
 
-<p>Let's see!</p>
+Let's see!
 
-<p>Write \"10-5/2\" and see the result.</p>
+Write \"10-5/2\" and check the result.
 
-<p>Yes, there's no result! The programming just read the data as a text.
-Now do the same operation without the quotations marks.</p>")
+The programming just read the data as a text.
+Now do the same operation without the quotations marks.")
 
 
 lesson_2 = Lesson.create(title: "Lesson 2 - Variables ", description: "this is lesson 2")
 lesson_2.steps.create(
-result: 22,
-text: "Type 22 ")
+result: "\"John\"",
+text: "Creating variables
+
+Variables are a way to represent data (strings, integers, etc).
+To create a variable it is necessary to give a name and assign a value to it.
+For example: name = \"Mary\"
+
+Now, it's your turn!
+Create a variable called my_name and assign the value \"John\" to it.
+Press enter.
+
+Then call the variable (you just need to write my_name) and see the result.")
+
+
 
 lesson_2.steps.create(
-result: 23,
-text: "Type 23 ")
+result: "\"Caroline Smith\"",
+text: "Concatenation
 
-lesson_2.steps.create(
-result: 23,
-text: "Type 24 ")
+You can work with variables in different ways.
+If you have two variables representing two strings, it's possible to concatenate them.
+Concatenate, in computer science, means to join strings.
+
+Try this in the console:
+
+name = \"Caroline\" << \" Smith\"
+
+The result will be \"Caroline Smith\".")
+
 
 
 
