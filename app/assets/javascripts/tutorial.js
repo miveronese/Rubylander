@@ -43,6 +43,7 @@ function runStep(lesson, stepNumber) {
 
     setTimeout(function() {
       if (lastResult == step.result) {
+        console.log(">>>Last Result (our function) : "+ lastResult);
         runStep(lesson, stepNumber + 1);      
       } else {
         jqconsole.Write("Oops, try again. \n")
@@ -68,6 +69,7 @@ function startTutorial() {
     },
     result: function(result) {
       lastResult = result;
+      console.log(">>>Last Result (jqconsole) : "+ lastResult);
       jqconsole.Write(result + '\n', 'jqconsole-result');
     } 
   }); 
