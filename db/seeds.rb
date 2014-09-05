@@ -8,7 +8,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+lesson_welcome = Lesson.create(title:"Welcome")
+lesson_welcome.steps.create(
+text: "Let's started the lessons  click on the button \"Next Lesson\"")
 
 lesson = Lesson.create(title: "Lesson 1 - Strings and Integers", description: "this is lesson 1")
 
