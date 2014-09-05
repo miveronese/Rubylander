@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 8bed056ec6b01da8244361885efaf3fc57a6f08d
 source 'https://rubygems.org'
 
 
