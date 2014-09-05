@@ -11,6 +11,37 @@ var jsrepl;
 var jqconsole;
 var next_lesson_id;
 
+
+
+
+function startTutorial() {
+  
+
+  jqconsole = $('#console').jqconsole(greet.welcome + '\n', '>>> ');
+  jsrepl = new JSREPL({
+    error: function(e) {
+      jqconsole.Write(e);
+    }, 
+    input: function() {   
+    },  
+    output: function(s) {
+      jqconsole.Write(s + '\n', 'jqconsole-output');
+    },
+    result: function(result) {
+      lastResult = result;
+      jqconsole.Write(result + '\n', 'jqconsole-result');
+    } 
+  }); 
+
+jsrepl.loadLanguage("ruby", function() {  
+    jqconsole.Write(":) \n" );  
+    $.getJSON("/lessons/1", function(lesson){
+        runStep(lesson, 0);
+    });
+  });
+
+}
+
 function runStep(lesson, stepNumber) {
   $('#button').hide();
 
@@ -37,7 +68,7 @@ function runStep(lesson, stepNumber) {
     jsrepl.eval(input);
 
     setTimeout(function() {
-      console.log(lastResult + ", " + step.result);
+      // console.log(lastResult + ", " + step.result);
       if (lastResult == step.result) {
         runStep(lesson, stepNumber + 1);      
       } else {
@@ -48,36 +79,6 @@ function runStep(lesson, stepNumber) {
   });
 }
 
-function startTutorial() {
-  
-
-  jqconsole = $('#console').jqconsole(greet.welcome + '\n', '>>> ');
-
-  jsrepl = new JSREPL({
-    error: function(e) {
-      jqconsole.Write(e);
-    }, 
-    input: function() {   
-    },  
-    output: function(s) {
-      jqconsole.Write(s + '\n', 'jqconsole-output');
-    },
-    result: function(result) {
-      lastResult = result;
-      jqconsole.Write(result + '\n', 'jqconsole-result');
-    } 
-  }); 
-
-
-
-  jsrepl.loadLanguage("ruby", function() {  
-    jqconsole.Write(":) \n" );  
-    $.getJSON("/lessons/1", function(lesson){
-        runStep(lesson, 0);
-    });
-    
-  });    
-}
 
 
 function show_button() {
@@ -91,3 +92,5 @@ function show_button() {
       });
   });
 }
+
+
