@@ -8,9 +8,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# lesson_welcome = Lesson.create(title:"Welcome")
-# lesson_welcome.steps.create(
-# text: "Let's started the lessons  click on the button \"Next Lesson\"")
  
 lesson = Lesson.create(title: "<b>It's time to learn Ruby!</b>", content: " welcome message")
 
@@ -92,8 +89,7 @@ Let's see!</p>
 
 lesson_1.steps.create(
 result: 1,
-
-text: "<p> Yes! </p>
+text: "<p> Great!! </p>
 
 <p> Now that you have learned about integers, floats and strings, it's time to do some magic with them! 
 
@@ -154,7 +150,7 @@ To call a variable you just have to type its name.</p>
 
 lesson_2.steps.create(
 result: "\"Earth\"",
-text: "<p>Well done! When you call a variable, it's value is shown. In the last example, you typed the 
+text: "<p>Well done! When you call a variable, its value is shown. In the last example, you typed the 
 variable's name (color) 
 and the programm showed its value (\"yellow\").</p>
 
@@ -172,15 +168,13 @@ That happens because Ruby is a case sensitive language. <p/>
 lesson_2.steps.create(
 result: 10,
 text: "<p>Now it worked! The value is shown only if you type the variable's name correctly.</p> 
+
+
 <p>Remember the magic that we have done in Lesson 1 transforming integers into strings and vice-versa?</p>
 
 <p> Let's do it again. But this time with variables. </p>
 
-<<<<<<< HEAD
 <p> First, create a variable called number and assign the string 10 as its value.
-=======
-<p> First, create a variable called number and assing the string 10 as its value(number=\"10\").
->>>>>>> 916cfbed020dfa214bb3451f5dc664b49b51abcb
 <p> Press enter.<p>
 <p> Then call the variable followed by .to_i
 <p> Hit enter... ")
