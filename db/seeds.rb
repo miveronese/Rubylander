@@ -33,34 +33,34 @@ text: "<p>Let's start with strings.<p/>
 
 <p>Strings are a data type used in programming mainly to represent text.</p>
 
-<p>To write a string we need to enclose the data in quotation marks (\" \") as you just did when typed \"start\". 
+<p>To write a string you need to enclose the data in quotation marks (\" \") as you just did when typed \"start\". 
 </p>
 
 <p> Other examples of strings:</p>
-\"This is a string\"
-\"Flower\"
-\"In a hole in the ground lived a hobbit\"
+<p>\"This is a string\"</p>
+<p>\"Flower\"</p>
+<p>\"In a hole in the ground lived a hobbit\"</p>
 
-<p> => Type in the console the string \"hello world\" and see what happens.</p>")
+<p>Type in the console the string \"hello world\" and see what happens.</p>")
 
 #result: "function(x) { return "Thats wrong!"; }"
 
 
 lesson_1.steps.create(
-	result: 25,
+result: 25,
 text: "<p> Good! </p>
 
 <p>Strings are not the only data type. 
 There are also integers which are whole numbers like 1, 7, 10, 1123.</p>
 
-<p>To write an integer you don't need to use the quotations marks (\" \").
+<p>To write an integer you don't need to use the quotations marks (\" \").</p>
 
-<p> => Type the integer 25 in the console.</p>")
+<p>Type the integer 25 in the console.</p>")
 
 
 lesson_1.steps.create(
 result: 45,
-text:"<p>That was easy, right?</p>
+text:"<p>That was easy!</p>
 
 <p>You can do a lot of mathematical operations with integers.
 The trick is just to use the righ symbol:</p>
@@ -73,7 +73,7 @@ The trick is just to use the righ symbol:</p>
 <p> Try to calculate 20 divided by 4 plus 9.</p>")
 
 lesson_1.steps.create(
-result: "15400.45",
+result: "28985.45",
 text: "<p>Well done!</p>
 
 <p> Floating-point numbers, also called floats, are other kind of data.</p>
@@ -91,42 +91,42 @@ Let's see!</p>
 
 </p>Write \"10-6/2\" in the console and check the result.</p>
 
-<p>Yes, there's no result! The programming just print the data as text and between quotes.</p>
+<p>Yes, there's no result! The programming just print the data as a text.</p>
 
-<p>Now do the same operation without the quotations marks to go to the next lesson.</p>")
+<p>Now do the same operation without the quotations marks.If you do it right, you will see the next lesson.</p>")
 
 lesson_1.steps.create(
-result: "\"1\"",
+result: "1",
 text: "<p> Yes! </p>
 
 <p> Now that you have learnt about integers, floats and strings, it's time to do some magic with them! 
 
 <p> Imagine you have a string called \"1\" and want to convert it into an integer. Is it possible?
-Of course!</p>
+Sure!</p>
 
 <p> Type .to_i  after the string: \"1\" and see...")
 
 
 lesson_1.steps.create(
-result: "\" 10.2\"",
+result: "\"10.2\"",
 text: "<p> That's it! You've just converted a string into an integer!</p>
 
-<p> Now try the opposite and tranform the number 10.2 into a string.
+<p> Now try the opposite and transform the number 10.2 into a string.
 
 <p> You just have to type .to_s  after the number...
 
 ")
 
 lesson_1.steps.create(
-result: "\" next lesson\"",
+result: "\"next lesson\"",
 text: "<p>  Very good!</p>
 
 <p> Just to remember: strings, integers and floats are three data types used in programming.
 In Ruby, strings must be written inside quotes (\" \"). 
-To transform strings into integers and vice-versa, use this codes: .to_i and to_s.</p>
+To transform strings into integers and vice-versa use this codes: .to_i and to_s.</p>
 
 <p> Ready to Lesson 2?
-Type \"next lesson\" to learn about variables.</p>
+Type \"next lesson\" to learn about variables in Ruby.</p>
 
 ")
 
@@ -142,10 +142,10 @@ For example:</p>
 
 
 <p>Easy, right? Now it's your turn!</p>
-<p>Create a variable called my_name and assing the value \"Jane\" to it.</p>")
+<p>Create a variable called my_name and assign the value \"Jane\" to it.</p>")
 
 lesson_2.steps.create(
-result: "\"\"",
+result: "\"yellow\"",
 text: "<p>Very good! </p>
 
 <p> After you create a variable you can call it anytime in your program. 
@@ -154,11 +154,11 @@ To call a variable you just have to type its name.</p>
 <p> Try this in the console:</p>
 <p> Create a variable called color and assign the value \"yellow\" to it. </p>
 <p> Press Enter. </p>
-<p> Call the variable just typing its name.</p>")
+<p> Call the variable typing its name.</p>")
 
 lesson_2.steps.create(
-result: "\"\"",
-text: "<p>Well done! When you call a variable, it's value is shown. In the last example, you typed the 
+result: "\"Earth\"",
+text: "<p>Well done! When you call a variable, its value is shown. In the last example, you typed the 
 variable's name (color) 
 and the programm showed its value (\"yellow\").</p>
 
@@ -171,11 +171,11 @@ That happens because Ruby is a case sensitive language. <p/>
 
 <p> Crete a variable called planet = \"Earth\" , press Enter and call it typing Planet.</p>
 
-<p>Then call it again using low case.</p>")
+<p>Then call it again using low case...</p>")
 
 lesson_2.steps.create(
-result: "\"\"",
-text: "<p>Now it worked! The value is shown only if you type the variable's name exactly how it was created.</p> 
+result: "10",
+text: "<p>Now it worked! The value is shown only if you type the variable's name correctly.</p> 
 
 
 <p>Remember the magic that we have done in Lesson 1 transforming integers into strings and vice-versa?</p>
@@ -189,18 +189,18 @@ text: "<p>Now it worked! The value is shown only if you type the variable's name
 
 
 lesson_2.steps.create(
-result: "\"\"",
+result: "\"10\"",
 text: "<p>The command .to_i changed the variable value to an integer!</p> 
 
 
-<p> How about to transform the variable  into a string again?
+<p> How about to transform the variable into a string again?
 <p> You just need to type .to_s after the variable's name.</p>")
 
 lesson_2.steps.create(
-result: "\"\"",
+result: "3",
 text: "<p>Perfect!</p>
 
-<p> One variable can also storage other variables. Sound crazy... But it's possible!</p>
+<p> One variable can also store other variables. Sounds crazy... But it's possible!</p>
 
 <p> Try this in the console:</p>
 <p>Create a variable a = 1
@@ -213,7 +213,7 @@ Call the variable c and see what happens...</p>")
 
 
 lesson_2.steps.create(
-result: "\"\"",
+result: "\"Welcome dear Mary\"",
 text: "<p>Awesome!</p>
 
 <p> In Ruby you can work with variables in many others ways.</p>
@@ -227,13 +227,13 @@ text: "<p>Awesome!</p>
 <p> Call the variable welcome and pay attention... </p>")
 
 lesson_2.steps.create(
-result: "\"\"",
+result: "\"Hello, I am 20 years old\"",
 text: "<p>What happened?</p>
 <p> The code {#name} in \"Welcome dear {#name}\" did the trick. 
-It inserted the value of the variable name
-into the variable welcome. </p>
+It inserted the value of one variable (name)
+into the other variable (welcome). </p>
 
-Try it again with numbers:
+Try this time with numbers:
 
 Create a variable called age and assign to it the integer 20.
 Create a variable called greeting that contains the following data:
@@ -247,11 +247,11 @@ text: "<p>Awesome!!</p>
 <p> Now you are an expert in variables!</p>
 <p> You also learnt a lot about strings, integers and floats.</p>
 
-<p> Repeat the lessons as many time as you want and
+<p> Repeat the lessons as many times as you want and
 feel free to use the console window to play around with Ruby commands.</p>
 
-<p> If you want to go deeper in you learnship, 
-check the <a href=\"http://en.wikibooks.org/wiki/Ruby_Programming\">ruby programming wikibook </a></p>") 
+<p> If you want to go deeper in Ruby, 
+check the <a href=\"http://en.wikibooks.org/wiki/Ruby_Programming\">ruby programming wikibook. </a></p>") 
 
 
 
