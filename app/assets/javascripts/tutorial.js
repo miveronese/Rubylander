@@ -1,4 +1,3 @@
-
 var greet = {
   welcome: "Welcome to RubyLander!"
 };
@@ -10,29 +9,32 @@ var start = {
 var lastResult;
 var jsrepl;
 var jqconsole;
-var next_lesson_id;
+var next_lesson_id = 0;
+var next_step = 0;
 
 function runStep(lesson, stepNumber) {
   $('#button').hide();
-
-  next_lesson_id = lesson.id + 1;
-
+  
   var step = lesson.steps[stepNumber]
-
         $('#lesson_title').html(lesson.title);  
-        if(lesson.title == "Welcome"){
-           $('#messages').html(step.text);  
-           $('#button').show();
-           $(function() {
-            show_button();  
-           });
-        }else if(stepNumber == lesson.steps.length){     
-          $('#messages').html("Congratulation..." );  
+        // if(lesson.title == "Welcome"){
+        //    $('#messages').html(step.text);  
+        //    $('#button').show();
+        //    $(function() {
+        //     show_button();  
+        //    });
+        // }else 
+        if(stepNumber == lesson.steps.length){     
+          next_lesson_id = lesson.id + 1;
+          console.log("Next_lesson_id:"+next_lesson_id);
+          console.log("stepNumber == lesson.steps.length:"+ stepNumber +"--"+ lesson.steps.length);
+          $('#messages').html("Click on Next Lesson for you to continue your learning" );   
           $('#button').show();
           $(function() {
             show_button();  
           });
         }else{
+          console.log("stepNumber != lesson.steps.length:"+ stepNumber +"--"+ lesson.steps.length);
           $('#messages').html(step.text);
         }
 
@@ -40,9 +42,8 @@ function runStep(lesson, stepNumber) {
     jsrepl.eval(input);
 
     setTimeout(function() {
-      console.log(lastResult + ", " + step.result);
       if (lastResult == step.result) {
-        runStep(lesson, stepNumber + 1);          
+        runStep(lesson, stepNumber + 1);      
       } else {
         jqconsole.Write("Oops, try again. \n")
         runStep(lesson, stepNumber)
@@ -85,6 +86,7 @@ function startTutorial() {
 
 function show_button() {
   $("#button").click(function() {
+    $(this).hide();
       $.ajax({
         url:"/lessons/" + next_lesson_id,
         context:document.body      
@@ -93,5 +95,4 @@ function show_button() {
       });
   });
 }
-
 

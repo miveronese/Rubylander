@@ -6,6 +6,7 @@ gem 'rails', '4.1.0'
 
 gem 'pg'
 gem 'mysql'
+gem 'sqlite3'
 
 gem 'rails_12factor', group: :production
 

@@ -5,10 +5,12 @@ development:
   username: root
   password:
 
-test:
-  adapter: sqlite3
-  encoding: utf8
-  database: db/test.sqlite3
+
+
+# test:
+#   adapter: sqlite3
+#   encoding: utf8
+#   database: db/test.sqlite3
 
 
 # PostgreSQL. Versions 8.2 and up are supported.
