@@ -1,12 +1,16 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8bed056ec6b01da8244361885efaf3fc57a6f08d
 source 'https://rubygems.org'
 
-ruby '2.1.1'	
 
-gem 'rails', '4.1.0'
+ruby '2.1.1'
+
+gem 'rails', '4.2.0.beta1'
 
 gem 'pg'
-gem 'mysql'
-gem 'sqlite3'
 
 gem 'rails_12factor', group: :production
 
@@ -23,11 +27,9 @@ gem 'uglifier'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'rails_admin'
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
-
+  gem 'mysql'
   gem 'pry'
 
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
@@ -37,5 +39,11 @@ group :development, :test do
   gem 'web-console', '~> 2.0.0.beta2'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+<<<<<<< HEAD
   #gem 'spring'
 end
+=======
+  gem 'spring'
+
+end
+>>>>>>> 8bed056ec6b01da8244361885efaf3fc57a6f08d
