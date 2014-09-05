@@ -4,11 +4,13 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
-gem 'rails', '4.2.0.beta1'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 
 gem 'rails_12factor', group: :production
+
+gem 'rails_admin', '~> 0.6.3'
 
 # 
 # Use jquery as the JavaScript library
