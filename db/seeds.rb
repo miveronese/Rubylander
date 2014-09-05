@@ -16,10 +16,10 @@ lesson = Lesson.create(title: "<b>It's time to learn Ruby!</b>", content: " welc
 
 lesson.steps.create(
 result: "\"start\"",
-text: "<p>Here you will learn  the basic concepts of Ruby, a programming language simple and easy to understand.</p>
+text: "<p>Here you will learn the basic concepts of Ruby, a programming language simple and easy to understand.</p>
 
 <p>The window on the right side is an interactive web console. 
-You can type Ruby commands in there and see the result.</p>
+You can type Ruby commands in there and see the results.</p>
 
 <p>Ready to start?</p>
 
@@ -34,9 +34,9 @@ lesson_1.steps.create(
 result: "\"hello world\"",
 text: "<p>Let's start with strings.<p/>
 
-<p>Strings are a data type used in programming mainly to represent text.</p>
+<p>Strings are used in programming traditionally to represent text (words and phrases).</p>
 
-<p>To write a string you need to enclose the data in quotation marks (\" \") as you just did when typed \"start\". 
+<p>In Ruby, to write a string you need to enclose the data in quotation marks (\" \") as you just did when typed \"start\". 
 </p>
 
 <p> Other examples of strings:</p>
@@ -53,10 +53,11 @@ lesson_1.steps.create(
 result: 25,
 text: "<p> Good! </p>
 
-<p>Strings are not the only data type. 
-There are also integers which are whole numbers like 1, 7, 10, 1123.</p>
+<p> In Ruby, strings are not the only data type. There are also numbers.</p>
+<p>When the numbers don't have a decimal point (like 1, 3, 7), they are called integers.
+When they have a decimal point (like 10.5 or 1.2), they are called floats or floating-point numbers.</p>
 
-<p>To write an integer you don't need to use the quotations marks (\" \").</p>
+<p>To write a number you don't need to use the quotations marks (\" \").</p>
 
 <p>Type the integer 25 in the console.</p>")
 
@@ -65,8 +66,8 @@ lesson_1.steps.create(
 result: 14,
 text:"<p>That was easy!</p>
 
-<p>You can do a lot of mathematical operations with integers.
-The trick is just to use the righ symbol:</p>
+<p>You can do a lot of mathematical operations with numbers.
+The trick is to use the right symbol:</p>
 
 <p>+ for addition</p>
 <p>- for subtraction</p>
@@ -75,34 +76,26 @@ The trick is just to use the righ symbol:</p>
 
 <p> Try to calculate 20 divided by 4 plus 9.</p>")
 
-lesson_1.steps.create(
-result: "28985.45",
-text: "<p>Well done!</p>
-
-<p> Floating-point numbers, also called floats, are other kind of data.</p>
-These numbers have decimal points like 10.2 or 15.5.</p>
-
-<p> You can also do mathematical operations with them.
-Multiply 123.5 by 234.7 to go to the next lesson.</p>")
 
 lesson_1.steps.create(
 result: 7,
 text: "<p>You are good!</p>
 
-<p> Can you guess what happens if you write a mathematical operation inside a string?
+<p> Can you guess what happens if you write numbers and mathematical operation inside a string?
 Let's see!</p>
 
 </p>Write \"10-6/2\" in the console and check the result.</p>
 
-<p>Yes, there's no result! The programming just print the data as a text.</p>
+<p>The program just print the data as a text,since the information was between quotes.</p>
 
-<p>Now do the same operation without the quotations marks.If you do it right, you will see the next lesson.</p>")
+<p>Now do the same operation without the quotes. If you do it right, you will see the next lesson.</p>")
 
 lesson_1.steps.create(
 result: 1,
+
 text: "<p> Yes! </p>
 
-<p> Now that you have learnt about integers, floats and strings, it's time to do some magic with them! 
+<p> Now that you have learned about integers, floats and strings, it's time to do some magic with them! 
 
 <p> Imagine you have a string called \"1\" and want to convert it into an integer. Is it possible?
 Sure!</p>
@@ -124,8 +117,8 @@ lesson_1.steps.create(
 result: "\"next lesson\"",
 text: "<p>  Very good!</p>
 
-<p> Just to remember: strings, integers and floats are three data types used in programming.
-In Ruby, strings must be written inside quotes (\" \"). 
+<p> Just to remember: strings, integers and floats are three data types used in Ruby.
+Strings must be written inside quotes. 
 To transform strings into integers and vice-versa use this codes: .to_i and to_s.</p>
 
 <p> Ready to Lesson 2?
@@ -136,7 +129,7 @@ Type \"next lesson\" to learn about variables in Ruby.</p>
 lesson_2 = Lesson.create(title: "Lesson 2 - Variables ", content: "this is lesson 2")
 lesson_2.steps.create(
 result: "\"Jane\"",
-text: "<p>Variables are a practical way to represent data.</p>
+text: "<p>Variables are a way to store a value somewhere so you can get back to it later.</p>
 <p>To create a variable you need to give it a name and assign a value to it.
 For example:</p>
 <p>name = \"Mary\" </p>
@@ -183,7 +176,11 @@ text: "<p>Now it worked! The value is shown only if you type the variable's name
 
 <p> Let's do it again. But this time with variables. </p>
 
+<<<<<<< HEAD
+<p> First, create a variable called number and assign the string 10 as its value.
+=======
 <p> First, create a variable called number and assing the string 10 as its value(number=\"10\").
+>>>>>>> 916cfbed020dfa214bb3451f5dc664b49b51abcb
 <p> Press enter.<p>
 <p> Then call the variable followed by .to_i
 <p> Hit enter... ")
@@ -194,14 +191,14 @@ result: "\"10\"",
 text: "<p>The command .to_i changed the variable value to an integer!</p> 
 
 
-<p> How about to transform the variable into a string again?
+<p> How about transforming the variable into a string again?
 <p> You just need to type .to_s after the variable's name.</p>")
 
 lesson_2.steps.create(
 result: 3,
 text: "<p>Perfect!</p>
 
-<p> One variable can also store other variables. Sounds crazy... But it's possible!</p>
+<p> One variable can be created by referencing other variables. Sounds crazy... But it's possible!</p>
 
 <p> Try this in the console:</p>
 <p>Create a variable a = 1
@@ -246,12 +243,12 @@ lesson_2.steps.create(
 result: "\"\"",
 text: "<p>Awesome!!</p>
 <p> Now you are an expert in variables!</p>
-<p> You also learnt a lot about strings, integers and floats.</p>
+<p> You also learned a lot about strings, integers and floats.</p>
 
 <p> Repeat the lessons as many times as you want and
 feel free to use the console window to play around with Ruby commands.</p>
 
-<p> If you want to go deeper in Ruby, 
+<p> If you want to go deeper in your studies, 
 check the <a href=\"http://en.wikibooks.org/wiki/Ruby_Programming\">ruby programming wikibook. </a></p>") 
 
 

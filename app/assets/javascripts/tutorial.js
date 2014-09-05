@@ -12,6 +12,9 @@ var jqconsole;
 var next_lesson_id = 0;
 var next_step = 0;
 
+
+
+
 function runStep(lesson, stepNumber) {
   $('#button').hide();
   
@@ -42,6 +45,7 @@ function runStep(lesson, stepNumber) {
     jsrepl.eval(input);
 
     setTimeout(function() {
+
       if (lastResult == step.result) {
         console.log(">>>Last Result (our function) : "+ lastResult);
         runStep(lesson, stepNumber + 1);      
@@ -52,6 +56,7 @@ function runStep(lesson, stepNumber) {
     }, 100);
   });
 }
+
 
 function startTutorial() {
   
@@ -85,7 +90,6 @@ function startTutorial() {
   });    
 }
 
-
 function show_button() {
   $("#button").click(function() {
     $(this).hide();
@@ -97,4 +101,5 @@ function show_button() {
       });
   });
 }
+
 
