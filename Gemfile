@@ -4,11 +4,13 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
-gem 'rails', '4.2.0.beta1'
+gem 'rails', '4.0.0'
 
 gem 'pg'
 
 gem 'rails_12factor', group: :production
+
+gem 'rails_admin', '~> 0.6.3'
 
 # 
 # Use jquery as the JavaScript library
@@ -34,6 +36,6 @@ group :development, :test do
   # Access an IRB console on exceptions page and /console in development
   gem 'web-console', '~> 2.0.0.beta2'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #gem 'spring'
+  
+
 end
