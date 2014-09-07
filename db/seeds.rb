@@ -176,11 +176,7 @@ text: "<p>Now it worked! The value is shown only if you type the variable's name
 
 <p> Let's do it again. But this time with variables. </p>
 
-<<<<<<< HEAD
 <p> First, create a variable called number and assign the string 10 as its value.
-=======
-<p> First, create a variable called number and assing the string 10 as its value(number=\"10\").
->>>>>>> 916cfbed020dfa214bb3451f5dc664b49b51abcb
 <p> Press enter.<p>
 <p> Then call the variable followed by .to_i
 <p> Hit enter... ")
