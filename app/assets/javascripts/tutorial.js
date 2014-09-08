@@ -85,6 +85,6 @@ function startTutorial() {
 
     loadRubyLanguage(repl, function() {
         jqConsole.Write(":) \n" );
-        loadLesson(FIRST_LESSON, runStep);
+        loadLesson("first", runStep);
     });
 }
