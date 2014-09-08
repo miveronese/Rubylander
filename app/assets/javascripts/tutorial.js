@@ -1,84 +1,84 @@
-/*var greet = {
-  welcome: "Welcome to RubyLander!"
-};
+var FIRST_STEP = 0;
+var FIRST_LESSON = 1;
 
-var start = {
-  preface: "Welcome to our tutorial. It's time to learn Ruby."
-};
-
-var lastResult;
-var jsrepl;
-var jqconsole;
-var next_lesson_id = 0;
-var next_step = 0;
-
-function runStep(lesson, stepNumber) {
-  var step = lesson.steps[stepNumber];
-
-  $('#lesson_title').html(lesson.title);
-
-  if(stepNumber == lesson.steps.length){
-    next_lesson_id = lesson.id + 1;
-    $('#messages').html("Click on Next Lesson for you to continue your learning" );   
-    $('#button').show();
-    $(function() {
-      show_button();  
-    });
-  }else{
-    $('#messages').html(step.text);
-  }
-
-  jqconsole.Prompt(true, function (input) {
-    jsrepl.eval(input);
-
-    if (lastResult == step.result) {
-      runStep(lesson, stepNumber + 1);      
-    } else {
-      runStep(lesson, stepNumber)
-    }
-  });
+function hideButton() {
+    $("#button").hide();
 }
 
+function createJqconsole() {
+    return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
+}
+
+function createJsRepl(jqConsole) {
+    return new JSREPL();
+}
+
+function loadLesson(lessonNumber, runStep) {
+    $.getJSON("/lessons/" + lessonNumber, function(lesson){
+        setLessonTitle(lesson.title);
+        runStep(lesson, FIRST_STEP);
+    });
+}
+
+function loadRubyLanguage(repl, languageCallback) {
+    repl.loadLanguage("ruby", function() {
+        languageCallback();
+    });
+}
+
+function setLessonTitle(title) {
+    $('#lesson_title').html(title);
+}
+
+function showStep(message) {
+    $('#messages').html(message);
+}
+
+function showNextLesson(nextLessonId, runStep) {
+    $('#messages').html("Click on Next Lesson to continue your learning");
+    $("#button").show();
+    $("#button").unbind();
+    $("#button").click(function() {
+        hideButton();
+        loadLesson(nextLessonId, runStep);
+    });
+}
 
 function startTutorial() {
-  $('#button').hide();
-
-  jqconsole = $('#console').jqconsole(greet.welcome + '\n', '>>> ');
-
-  jsrepl = new JSREPL({
-    error: function(e) {
-      jqconsole.Write(e);
-    }, 
-    input: function() {
-    },  
-    output: function(s) {
-      jqconsole.Write(s + '\n', 'jqconsole-output');
-    },
-    result: function(result) {
-      lastResult = result;
-      jqconsole.Write(result + '\n', 'jqconsole-result');
-    } 
-  }); 
-
-  jsrepl.loadLanguage("ruby", function() {  
-    jqconsole.Write(":) \n" );  
-    $.getJSON("/lessons/1", function(lesson){
-        runStep(lesson, next_step);
-    });
+    hideButton();
+    var jqConsole = createJqconsole();
+    var repl = createJsRepl(jqConsole);
     
-  });    
-}
+    var runStep = function(lesson, stepNumber) {
+        var step = lesson.steps[stepNumber];
 
-function show_button() {
-  $("#button").click(function() {
-    $(this).hide();
-      $.ajax({
-        url:"/lessons/" + next_lesson_id,
-        context:document.body      
-      }).done(function(lesson) {
-        runStep(lesson, next_step);
-      });
-  });
-}
+        if (stepNumber == lesson.steps.length) {
+            showNextLesson(lesson.id + 1, runStep);
+        } else {
+            showStep(step.text);
 
-*/
+            jqConsole.Prompt(true, function (input) {
+                repl.once("error", function(e) {
+                    jqConsole.Write(e);
+                    runStep(lesson, stepNumber);
+                    repl.off("result");
+                });
+                repl.once("result", function(result) {
+                    jqConsole.Write(result + '\n', 'jqconsole-result');
+                    if (result == step.result) {
+                        runStep(lesson, stepNumber + 1);
+                    } else {
+                        runStep(lesson, stepNumber);
+                    }
+                    repl.off("error");
+                });
+                repl.eval(input);
+            });
+        }
+    };
+
+    loadRubyLanguage(repl, function() {
+        jqConsole.Write(":) \n" );
+        loadLesson(FIRST_LESSON, runStep);
+    });
+}
