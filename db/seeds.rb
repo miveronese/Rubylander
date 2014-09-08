@@ -96,7 +96,7 @@ text: "<p> Great!! </p>
 <p> Imagine you have a string called \"1\" and want to convert it into an integer. Is it possible?
 Sure!</p>
 
-<p> Type .to_i  after the string: \"1\" and see...")
+<p> Type .to_i  after the string: \"1\" and see... </p>")
 
 
 lesson_1.steps.create(

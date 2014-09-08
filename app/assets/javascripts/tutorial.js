@@ -1,5 +1,8 @@
 var FIRST_STEP = 0;
 var FIRST_LESSON = 1;
+var LAST_STEP_OF_FIRST_LESSON = 1;
+
+function next(id) { return id + 1; }
 
 function hideButton() {
     $("#button").hide();
@@ -52,8 +55,10 @@ function startTutorial() {
     var runStep = function(lesson, stepNumber) {
         var step = lesson.steps[stepNumber];
 
-        if (stepNumber == lesson.steps.length) {
-            showNextLesson(lesson.id + 1, runStep);
+        if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
+            loadLesson(next(lesson.id), runStep);
+        } else if (stepNumber == lesson.steps.length) {
+            showNextLesson(next(lesson.id), runStep);
         } else {
             showStep(step.text);
 
