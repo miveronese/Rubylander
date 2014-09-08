@@ -70,6 +70,7 @@ function startTutorial() {
                 });
                 repl.once("result", function(result) {
                     jqConsole.Write(result + '\n', 'jqconsole-result');
+
                     if (result == step.result) {
                         runStep(lesson, stepNumber + 1);
                     } else {

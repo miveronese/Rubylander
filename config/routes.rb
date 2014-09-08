@@ -6,7 +6,9 @@ root 'tutorial#home'
 
 get 'tutorial/lessons/:id', to: 'tutorial#start'
 get '/lessons', to: 'lessons#index'
+get 'lessons/first' => 'lessons#first'
 get '/lessons/:id' => 'lessons#show'
+
 
 #post (controller #  method)
 # post '/' => 'tutorial#run'
