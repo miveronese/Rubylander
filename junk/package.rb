@@ -19,7 +19,8 @@ module Food
 	class Biscuit
 
 		def initialize(nutrition_value)
-			@nutrition_value = nutrition_value
+			@nutrition_value = nutrition_value 
+			
 		end
 
 		def is_healthy?

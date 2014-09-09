@@ -55,9 +55,9 @@ function startTutorial() {
     var runStep = function(lesson, stepNumber) {
         var step = lesson.steps[stepNumber];
 
-        if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
-            loadLesson(next(lesson.id), runStep);
-        } else if (stepNumber == lesson.steps.length) {
+        // if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
+        //     loadLesson(next(lesson.id), runStep);  } else
+       if (stepNumber == lesson.steps.length) {
             showNextLesson(next(lesson.id), runStep);
         } else {
             showStep(step.text);
@@ -85,6 +85,9 @@ function startTutorial() {
 
     loadRubyLanguage(repl, function() {
         jqConsole.Write(":) \n" );
+        // loadLesson(FIRST_LESSON, runStep);
+        // loadLesson("4", runStep);
         loadLesson("first", runStep);
+
     });
 }
