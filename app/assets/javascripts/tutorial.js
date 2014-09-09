@@ -74,6 +74,7 @@ function startTutorial() {
                     if (result == step.result) {
                         runStep(lesson, stepNumber + 1);
                     } else {
+                        // jqconsole.Write("Oops, you've made a mistake. Try again. \n")
                         runStep(lesson, stepNumber);
                     }
                     repl.off("error");
