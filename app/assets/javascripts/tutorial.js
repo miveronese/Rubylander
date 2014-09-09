@@ -1,5 +1,5 @@
 var FIRST_STEP = 0;
-var FIRST_LESSON = 1;
+var FIRST_LESSON = 0;
 var LAST_STEP_OF_FIRST_LESSON = 1;
 
 function next(id) { return id + 1; }
@@ -17,10 +17,18 @@ function createJsRepl(jqConsole) {
 }
 
 function loadLesson(lessonNumber, runStep) {
-    $.getJSON("/lessons/" + lessonNumber, function(lesson){
+    if(lessonNumber == 0){
+       $.getJSON("/lessons/first", function(lesson){ 
+        setLessonTitle(lesson.title);
+        console.log(lesson.id)
+        runStep(lesson, FIRST_STEP);
+       });   
+    }else{
+       $.getJSON("/lessons/" + lessonNumber, function(lesson){
         setLessonTitle(lesson.title);
         runStep(lesson, FIRST_STEP);
-    });
+       });
+    }   
 }
 
 function loadRubyLanguage(repl, languageCallback) {
