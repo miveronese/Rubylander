@@ -12,6 +12,7 @@ gem 'rails_12factor', group: :production
 
 gem 'rails_admin', '~> 0.6.3'
 
+gem 'yaml_db'
 # 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

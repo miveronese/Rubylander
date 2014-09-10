@@ -1,10 +1,10 @@
 development:
   encoding: utf8
-  adapter: mysql
-  database: rubylander
-  username: root
-  password:
-
+  adapter:  postgresql
+  database: rubylander_development
+  username: rubylander
+  password: 'bla'
+  pool: 5
 
 
 # test:

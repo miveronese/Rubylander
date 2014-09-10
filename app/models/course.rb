@@ -1,4 +1,4 @@
 class Course < ActiveRecord::Base
 
-	has_many :lesson
+	has_many :lessons, order: :id
 end
