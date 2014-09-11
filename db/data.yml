@@ -1,0 +1,10 @@
+
+---
+lessons:
+  columns:
+  - id
+  - title
+  - content
+  - created_at
+  - updated_at
+  records: 

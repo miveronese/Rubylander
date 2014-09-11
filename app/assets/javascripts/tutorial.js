@@ -18,7 +18,6 @@ function createJsRepl(jqConsole) {
 function checkAddress(lessonNumber){
     var address = "";
      if(lessonNumber == 0){
-        console.log("lessonNumber"+"  Entreou aqui no lesson == 0")
          address = "/lessons/first"; 
      }else{
          address = "/lessons/" + lessonNumber;
@@ -66,9 +65,9 @@ function startTutorial() {
     var runStep = function(lesson, stepNumber) {
         var step = lesson.steps[stepNumber];
 
-        if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
-            loadLesson(next(lesson.id), runStep);
-        } else if (stepNumber == lesson.steps.length) {
+       if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
+            loadLesson(next(lesson.id), runStep);  } else
+       if (stepNumber == lesson.steps.length) {
             showNextLesson(next(lesson.id), runStep);
         } else {
             showStep(step.text);
