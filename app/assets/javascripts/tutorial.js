@@ -15,20 +15,23 @@ function createJqconsole() {
 function createJsRepl(jqConsole) {
     return new JSREPL();
 }
+function checkAddress(lessonNumber){
+    var address = "";
+     if(lessonNumber == 0){
+        console.log("lessonNumber"+"  Entreou aqui no lesson == 0")
+         address = "/lessons/first"; 
+     }else{
+         address = "/lessons/" + lessonNumber;
+     }   
+    return address; 
+}
 
 function loadLesson(lessonNumber, runStep) {
-    if(lessonNumber == 0){
-       $.getJSON("/lessons/first", function(lesson){ 
+
+       $.getJSON(checkAddress(lessonNumber), function(lesson){
         setLessonTitle(lesson.title);
-        console.log(lesson.id)
         runStep(lesson, FIRST_STEP);
        });   
-    }else{
-       $.getJSON("/lessons/" + lessonNumber, function(lesson){
-        setLessonTitle(lesson.title);
-        runStep(lesson, FIRST_STEP);
-       });
-    }   
 }
 
 function loadRubyLanguage(repl, languageCallback) {
@@ -93,6 +96,6 @@ function startTutorial() {
 
     loadRubyLanguage(repl, function() {
         jqConsole.Write(":) \n" );
-        loadLesson("first", runStep);
+        loadLesson(FIRST_LESSON, runStep);
     });
 }

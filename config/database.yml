@@ -1,8 +1,9 @@
 development:
   encoding: utf8
-  adapter: mysql
+  adapter: postgresql
   database: rubylander
-  username: root
+  username: postgres
+  pool: 5
   password:
 
 
