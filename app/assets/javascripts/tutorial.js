@@ -5,7 +5,10 @@ var LAST_STEP_OF_FIRST_LESSON = 1;
 function next(id) { return id + 1; }
 
 function hideButton() {
-    $("#button").hide();
+   $("#button").hide();
+}
+function hideSummary (){
+   $("#summary").hide();
 }
 
 function createJqconsole() {
@@ -50,6 +53,7 @@ function showStep(message) {
 function showNextLesson(nextLessonId, runStep) {
     $('#messages').html("Click on Next Lesson to continue your learning");
     $("#button").show();
+    $("#summary").show();
     $("#button").unbind();
     $("#button").click(function() {
         hideButton();
@@ -57,21 +61,71 @@ function showNextLesson(nextLessonId, runStep) {
     });
 }
 
+function summarylesson() {
+    var createStepsList = function(steps) {
+        var stepsContainer = $("<div>");
+        var stepsList = $("<ul>");
+        steps.forEach(function(step) {
+            stepsList.append("<li>" + step.text + "</li>");
+        });
+        stepsContainer.append(stepsList);
+        
+        return stepsContainer;   
+    };
+    var createTitle = function(lesson) {
+        var titleContainer = $("<h3>");
+        titleContainer.append(lesson.title);
+
+        return titleContainer;
+    };
+
+
+    var summaryToggle = false;
+    $("#summary").show();
+  //abrir e fechar 
+    $("#summary").click(function() {
+       if(!summaryToggle){
+            accordion.show();            
+            summaryToggle = true; 
+        }else{
+            accordion.hide();
+            summaryToggle = false;
+        }    
+    });
+
+    var accordion = $("#accordion");
+    accordion.hide();
+    $.getJSON("/lessons/", function(lessons) {
+        lessons.forEach (function(lesson) {
+            var title = createTitle(lesson);
+            accordion.append(title);
+            var stepsList = createStepsList(lesson.steps);
+            accordion.append(stepsList);
+        });
+        accordion.accordion({ header: "h3", collapsible: true, active: false }); 
+    });
+
+  
+
+}
+
+
 function startTutorial() {
     hideButton();
+    hideSummary();
     var jqConsole = createJqconsole();
     var repl = createJsRepl(jqConsole);
-    
+    summarylesson();
     var runStep = function(lesson, stepNumber) {
         var step = lesson.steps[stepNumber];
+        
 
        if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
-            loadLesson(next(lesson.id), runStep);  } else
-       if (stepNumber == lesson.steps.length) {
+            loadLesson(next(lesson.id), runStep);  
+        } else if (stepNumber == lesson.steps.length) {
             showNextLesson(next(lesson.id), runStep);
         } else {
             showStep(step.text);
-
             jqConsole.Prompt(true, function (input) {
                 repl.once("error", function(e) {
                     jqConsole.Write(e);
