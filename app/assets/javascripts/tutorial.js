@@ -62,50 +62,50 @@ function showNextLesson(nextLessonId, runStep) {
 }
 
 function summarylesson() {
-    var createStepsList = function(steps) {
-        var stepsContainer = $("<div>");
-        var stepsList = $("<ul>");
-        steps.forEach(function(step) {
-            stepsList.append("<li>" + step.text + "</li>");
-        });
-        stepsContainer.append(stepsList);
-        
-        return stepsContainer;   
+    var createStepItem = function(step) {
+        var stepItem = $("<li>");    
+        stepItem.append(step.title);        
+        return stepItem;
     };
     var createTitle = function(lesson) {
-        var titleContainer = $("<h3>");
-        titleContainer.append(lesson.title);
-
-        return titleContainer;
+        var title = $("<h3>");
+        title.append(lesson.title);
+        return title;
     };
 
+  var accordionDiv = $("#accordion");
+
+  
+    accordionDiv.hide();
+    $.getJSON("/lessons/", function(lessons) {
+        lessons.forEach (function(lesson) {            
+            accordionDiv.append(createTitle(lesson)); 
+            
+            var stepsContainer = $("<div>")
+            accordionDiv.append(stepsContainer);
+            var stepsList = $("<ul>");
+            stepsContainer.append(stepsList);            
+            
+            lesson.steps.forEach(function(step){
+              stepsList.append(createStepItem(step));  
+            });
+            
+        });
+        accordionDiv.accordion({ header: "h3", collapsible: true, active: false }); 
+    });
 
     var summaryToggle = false;
     $("#summary").show();
   //abrir e fechar 
     $("#summary").click(function() {
        if(!summaryToggle){
-            accordion.show();            
+            accordionDiv.show();            
             summaryToggle = true; 
         }else{
-            accordion.hide();
+            accordionDiv.hide();
             summaryToggle = false;
         }    
     });
-
-    var accordion = $("#accordion");
-    accordion.hide();
-    $.getJSON("/lessons/", function(lessons) {
-        lessons.forEach (function(lesson) {
-            var title = createTitle(lesson);
-            accordion.append(title);
-            var stepsList = createStepsList(lesson.steps);
-            accordion.append(stepsList);
-        });
-        accordion.accordion({ header: "h3", collapsible: true, active: false }); 
-    });
-
-  
 
 }
 

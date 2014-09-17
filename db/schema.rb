@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140825150230) do
 
   create_table "steps", force: true do |t|
     t.integer  "lesson_id"
+    t.string   "title"
     t.text     "text"
     t.string   "result"
     t.datetime "created_at"
