@@ -15,11 +15,15 @@
     text-align: left;
 }
 #summary{
-    float: right;
-    padding-left: 20px;
+    float: top;
+    padding-left: 10px;
 }
 #accordion{
     float:left;
+}
+#steps{
+    width: 400px;
+    height: 400px;
 }
 #lesson_title{
     padding-left: 1px;

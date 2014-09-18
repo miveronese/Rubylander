@@ -30,10 +30,10 @@ function checkAddress(lessonNumber){
 
 function loadLesson(lessonNumber, runStep) {
 
-       $.getJSON(checkAddress(lessonNumber), function(lesson){
+    $.getJSON(checkAddress(lessonNumber), function(lesson){
         setLessonTitle(lesson.title);
         runStep(lesson, FIRST_STEP);
-       });   
+    });   
 }
 
 function loadRubyLanguage(repl, languageCallback) {
@@ -62,6 +62,7 @@ function showNextLesson(nextLessonId, runStep) {
 }
 
 function summarylesson() {
+    hideSummary();
     var createStepItem = function(step) {
         var stepItem = $("<li>");    
         stepItem.append(step.title);        
@@ -73,15 +74,13 @@ function summarylesson() {
         return title;
     };
 
-  var accordionDiv = $("#accordion");
-
-  
+    var accordionDiv = $("#accordion");  
     accordionDiv.hide();
     $.getJSON("/lessons/", function(lessons) {
         lessons.forEach (function(lesson) {            
             accordionDiv.append(createTitle(lesson)); 
             
-            var stepsContainer = $("<div>")
+            var stepsContainer = $("<div id=\"steps\">")
             accordionDiv.append(stepsContainer);
             var stepsList = $("<ul>");
             stepsContainer.append(stepsList);            
@@ -93,11 +92,10 @@ function summarylesson() {
         });
         accordionDiv.accordion({ header: "h3", collapsible: true, active: false }); 
     });
-
-    var summaryToggle = false;
-    $("#summary").show();
-  //abrir e fechar 
-    $("#summary").click(function() {
+   
+     var summaryToggle = false;
+     $("#summary").show();
+     $("#summary").click(function() {
        if(!summaryToggle){
             accordionDiv.show();            
             summaryToggle = true; 
@@ -105,12 +103,12 @@ function summarylesson() {
             accordionDiv.hide();
             summaryToggle = false;
         }    
-    });
+      });
 
 }
 
-
 function startTutorial() {
+    $("#summary").hide();
     hideButton();
     hideSummary();
     var jqConsole = createJqconsole();
@@ -135,7 +133,19 @@ function startTutorial() {
                 repl.once("result", function(result) {
                     jqConsole.Write(result + '\n', 'jqconsole-result');
 
-                    if (result == step.result) {
+                    var expected;
+
+                    try {
+                        expected = eval("(" + step.result + ")");
+                    } catch(err) {
+                        alert(err);
+                    }
+
+                    if (typeof(expected) != "function") {
+                        alert("expected result is not a function")
+                    }
+
+                    if (expected(result)) {
                         runStep(lesson, stepNumber + 1);
                     } else {
                         runStep(lesson, stepNumber);

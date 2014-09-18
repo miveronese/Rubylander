@@ -1,7 +1,6 @@
 class LessonsController < ApplicationController
 	def index
 		@all_lessons = Lesson.all
-		puts"Olaaaaaaaaaaaaaa"
 		render json: @all_lessons, include: :steps
 	end
 
