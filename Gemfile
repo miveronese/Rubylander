@@ -13,6 +13,12 @@ gem 'rails_12factor', group: :production
 gem 'rails_admin', '~> 0.6.3'
 
 gem 'yaml_db'
+
+# Twitter Bootstrap
+gem 'bootstrap-sass'
+gem 'font-awesome-sass-rails' 
+
+
 # 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -37,6 +43,6 @@ group :development, :test do
   # Access an IRB console on exceptions page and /console in development
   gem 'web-console', '~> 2.0.0.beta2'
 
-  
+
 
 end

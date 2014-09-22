@@ -1,9 +1,8 @@
-
-
-
 var FIRST_STEP = 0;
 var FIRST_LESSON = 0;
 var LAST_STEP_OF_FIRST_LESSON = 1;
+
+
 
 function next(id) { return id + 1; }
 
@@ -14,9 +13,6 @@ function hideSummary (){
    $("#summary").hide();
 }
 
-function Glossary() {
-    $("#glossary").html(); 
-}
 
 function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
@@ -37,10 +33,10 @@ function checkAddress(lessonNumber){
 
 function loadLesson(lessonNumber, runStep) {
 
-       $.getJSON(checkAddress(lessonNumber), function(lesson){
+    $.getJSON(checkAddress(lessonNumber), function(lesson){
         setLessonTitle(lesson.title);
         runStep(lesson, FIRST_STEP);
-       });   
+    });   
 }
 
 function loadRubyLanguage(repl, languageCallback) {
@@ -53,8 +49,19 @@ function setLessonTitle(title) {
     $('#lesson_title').html(title);
 }
 
+function applyGlossaryTips(){
+    $('.glossary-tips').tooltip({placement: 'top'});
+}
+
+function applyGlossaryPopover(){
+    $('.glossary-popover').popover({trigger:'click', placement:'top'});
+}
+
 function showStep(message) {
     $('#messages').html(message);
+    applyGlossaryPopover();
+    applyGlossaryTips();
+
 }
 
 function showNextLesson(nextLessonId, runStep) {
@@ -69,55 +76,46 @@ function showNextLesson(nextLessonId, runStep) {
 }
 
 function summarylesson() {
-    var createStepsList = function(steps) {
-        var stepsContainer = $("<div>");
-        var stepsList = $("<ul>");
-        steps.forEach(function(step) {
-            stepsList.append("<li>" + step.text + "</li>");
-        });
-        stepsContainer.append(stepsList);
-        
-        return stepsContainer;   
+    hideSummary();
+    var createStepItem = function(step) {
+        var stepItem = $("<li>");    
+        stepItem.append(step.title);        
+        return stepItem;
     };
     var createTitle = function(lesson) {
-        var titleContainer = $("<h3>");
-        titleContainer.append(lesson.title);
-
-        return titleContainer;
+        var title = $("<h3>");
+        title.append(lesson.title);
+        return title;
     };
 
-
-    var summaryToggle = false;
-    $("#summary").show();
-  //abrir e fechar 
-    $("#summary").click(function() {
-       if(!summaryToggle){
-            accordion.show();            
-            summaryToggle = true; 
-        }else{
-            accordion.hide();
-            summaryToggle = false;
-        }    
-    });
-
-    var accordion = $("#accordion");
-    accordion.hide();
     $.getJSON("/lessons/", function(lessons) {
-        lessons.forEach (function(lesson) {
-            var title = createTitle(lesson);
-            accordion.append(title);
-            var stepsList = createStepsList(lesson.steps);
-            accordion.append(stepsList);
+           var accordionDiv = $("#accordion");  
+            lessons.forEach (function(lesson) {            
+            accordionDiv.append(createTitle(lesson)); 
+            var sizeOfStep = lesson.steps.length
+            
+            var stepsContainer = $("<div id=\"steps\">");
+            accordionDiv.append(stepsContainer);
+            var stepsList = $("<ul>");
+            stepsContainer.append(stepsList);            
+            
+            lesson.steps.forEach(function(step){
+              stepsList.append(createStepItem(step));  
+            });
+            
         });
-        accordion.accordion({ header: "h3", collapsible: true, active: false }); 
+        accordionDiv.accordion({ header: "h3", collapsible: true, active: false }); 
     });
 
-  
 
+     $("#summary").show();
+     $("#summary").click(function() {
+        $("#summary-box").modal({show: true});
+      });
 }
 
-
 function startTutorial() {
+    $("#summary").hide();
     hideButton();
     hideSummary();
     var jqConsole = createJqconsole();
@@ -142,7 +140,19 @@ function startTutorial() {
                 repl.once("result", function(result) {
                     jqConsole.Write(result + '\n', 'jqconsole-result');
 
-                    if (result == step.result) {
+                    var expected;
+
+                    try {
+                        expected = eval("(" + step.result + ")");
+                    } catch(err) {
+                        alert(err);
+                    }
+
+                    if (typeof(expected) != "function") {
+                        alert("expected result is not a function")
+                    }
+
+                    if (expected(result)) {
                         runStep(lesson, stepNumber + 1);
                     } else {
                         runStep(lesson, stepNumber);

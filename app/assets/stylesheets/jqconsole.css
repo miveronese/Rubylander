@@ -14,12 +14,21 @@
     border-left: 1px solid #f6f5f0;
     text-align: left;
 }
+.glossary-tips {
+    max-width: 350px;
+}
+
 #summary{
-    float: right;
-    padding-left: 20px;
+    float: top;
+    padding-left: 10px;
 }
 #accordion{
-    float:left;
+    /*float:left;*/
+    
+}
+#steps{
+    width: 400px;
+    /*height: 200px;*/
 }
 #lesson_title{
     padding-left: 1px;

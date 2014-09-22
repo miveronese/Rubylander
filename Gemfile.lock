@@ -28,6 +28,8 @@ GEM
     arel (4.0.2)
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.1.4)
     byebug (3.4.0)
       columnize (~> 0.8)
@@ -49,6 +51,9 @@ GEM
     execjs (2.2.1)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -184,7 +189,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   byebug
+  font-awesome-sass-rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql
