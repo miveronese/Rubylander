@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 root 'tutorial#home'
 
 get 'tutorial/lessons/:id', to: 'tutorial#start'
-get '/lessons', to: 'lessons#index'
+get '/lessons/', to: 'lessons#index'
 get 'lessons/first/' => 'lessons#first'
 get '/lessons/:id' => 'lessons#show'
 

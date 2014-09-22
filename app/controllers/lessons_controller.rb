@@ -1,9 +1,10 @@
 class LessonsController < ApplicationController
 	def index
-		
+		@all_lessons = Lesson.all
+		puts"Olaaaaaaaaaaaaaa"
+		render json: @all_lessons, include: :steps
 	end
 
-	# /lessons/:id
 	def show
 		@lesson = Lesson.find(params[:id])
 		render json: @lesson, include: :steps
@@ -13,5 +14,8 @@ class LessonsController < ApplicationController
         @first_lesson = Lesson.first
         render json: @first_lesson, include: :steps
 	end
+
+
+
 end
 

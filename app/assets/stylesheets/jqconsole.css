@@ -14,9 +14,16 @@
     border-left: 1px solid #f6f5f0;
     text-align: left;
 }
-
+#summary{
+    float: right;
+    padding-left: 20px;
+}
+#accordion{
+    float:left;
+}
 #lesson_title{
     padding-left: 1px;
+    font-size:14px;
 }
 
 #glossary{
@@ -25,6 +32,7 @@
 
 #messages{
     padding-left: 10px;
+    font-size:14px;
 } 
 
 #next_lesson{
