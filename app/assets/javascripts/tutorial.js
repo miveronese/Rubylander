@@ -74,13 +74,13 @@ function summarylesson() {
         return title;
     };
 
-    var accordionDiv = $("#accordion");  
-    accordionDiv.hide();
     $.getJSON("/lessons/", function(lessons) {
-        lessons.forEach (function(lesson) {            
+           var accordionDiv = $("#accordion");  
+            lessons.forEach (function(lesson) {            
             accordionDiv.append(createTitle(lesson)); 
+            var sizeOfStep = lesson.steps.length
             
-            var stepsContainer = $("<div id=\"steps\">")
+            var stepsContainer = $("<div id=\"steps\">");
             accordionDiv.append(stepsContainer);
             var stepsList = $("<ul>");
             stepsContainer.append(stepsList);            
@@ -92,19 +92,12 @@ function summarylesson() {
         });
         accordionDiv.accordion({ header: "h3", collapsible: true, active: false }); 
     });
-   
-     var summaryToggle = false;
+
+
      $("#summary").show();
      $("#summary").click(function() {
-       if(!summaryToggle){
-            accordionDiv.show();            
-            summaryToggle = true; 
-        }else{
-            accordionDiv.hide();
-            summaryToggle = false;
-        }    
+        $("#summary-box").modal({show: true});
       });
-
 }
 
 function startTutorial() {
