@@ -1,0 +1,13 @@
+uppercase O
+^= go to the first word
+0= go to beginning ofline
+$ go to the end of the line
+dw = delete word
+de= delete word (different) 
+
+
+
+finall we're using vim
+last
+hello world !
+this is nift,y
