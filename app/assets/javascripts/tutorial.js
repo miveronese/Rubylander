@@ -93,8 +93,8 @@ function summarylesson() {
             lessons.forEach (function(lesson) {            
             accordionDiv.append(createTitle(lesson)); 
             var sizeOfStep = lesson.steps.length
-            
-            var stepsContainer = $("<div =\"steps\">");
+ 
+            var stepsContainer = $("<div>");
             accordionDiv.append(stepsContainer);
             var stepsList = $("<ul>");
             stepsContainer.append(stepsList);            
@@ -104,7 +104,8 @@ function summarylesson() {
             });
             
         });
-        accordionDiv.accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" }); 
+
+        accordionDiv.accordion({ header: "h3", collapsible: true, active: false, heightStyle:"content"}); 
     });
 
 
