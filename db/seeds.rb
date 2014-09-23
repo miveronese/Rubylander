@@ -243,7 +243,4 @@ text: "<p>Awesome!!</p>
 feel free to use the console window to play around with Ruby commands.</p>
 
 <p> If you want to go deeper in your studies, 
-check the <a href=\"http://en.wikibooks.org/wiki/Ruby_Programming\">ruby programming wikibook. </a></p>") 
-
-
-
+check the <a href=\"http://en.wikibooks.org/wiki/Ruby_Programming\">ruby programming wikibook. </a></p>
