@@ -1,11 +1,16 @@
 RailsAdmin.config do |config|
 
+  # config.authorize_with do
+  #   authenticate_or_request_with_http_basic('login required') do |username, password|
+  #     username == 'bobesponja' && password == 'patrick'
+  #   end
+  # end
+  
   config.authorize_with do
-    authenticate_or_request_with_http_basic('You need to login') do |username, password|
-      username == 'bobesponja' && password == 'patrick'
+    authenticate_or_request_with_http_basic('Login required') do |username, password|
+      username == Rails.application.secrets.user && password == Rails.application.secrets.password
     end
   end
-  
 
   ### Popular gems integration
 
