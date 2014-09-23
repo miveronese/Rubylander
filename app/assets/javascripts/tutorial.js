@@ -2,6 +2,8 @@ var FIRST_STEP = 0;
 var FIRST_LESSON = 0;
 var LAST_STEP_OF_FIRST_LESSON = 1;
 
+
+
 function next(id) { return id + 1; }
 
 function hideButton() {
@@ -10,6 +12,7 @@ function hideButton() {
 function hideSummary (){
    $("#summary").hide();
 }
+
 
 function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
@@ -46,8 +49,19 @@ function setLessonTitle(title) {
     $('#lesson_title').html(title);
 }
 
+function applyGlossaryTips(){
+    $('.glossary-tips').tooltip({placement: 'top'});
+}
+
+function applyGlossaryPopover(){
+    $('.glossary-popover').popover({trigger:'click', placement:'top'});
+}
+
 function showStep(message) {
     $('#messages').html(message);
+    applyGlossaryPopover();
+    applyGlossaryTips();
+
 }
 
 function showNextLesson(nextLessonId, runStep) {
@@ -80,7 +94,7 @@ function summarylesson() {
             accordionDiv.append(createTitle(lesson)); 
             var sizeOfStep = lesson.steps.length
             
-            var stepsContainer = $("<div id=\"steps\">");
+            var stepsContainer = $("<div>");
             accordionDiv.append(stepsContainer);
             var stepsList = $("<ul>");
             stepsContainer.append(stepsList);            
@@ -90,7 +104,7 @@ function summarylesson() {
             });
             
         });
-        accordionDiv.accordion({ header: "h3", collapsible: true, active: false }); 
+        accordionDiv.accordion({ header: "h3", collapsible: true, active: false, heightStyle:"content"}); 
     });
 
 

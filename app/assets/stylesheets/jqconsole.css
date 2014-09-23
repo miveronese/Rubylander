@@ -14,22 +14,27 @@
     border-left: 1px solid #f6f5f0;
     text-align: left;
 }
+.glossary-tips {
+    max-width: 350px;
+}
+
 #summary{
     float: top;
     padding-left: 10px;
 }
 #accordion{
-    /*float:left;*/
-
 }
-#steps{
-    /*width: 400px;*/
-    height: 200px;
+.steps{
 }
 #lesson_title{
     padding-left: 1px;
     font-size:14px;
 }
+
+#glossary{
+    padding-left: 50px;
+}
+
 #messages{
     padding-left: 10px;
     font-size:14px;

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140825150230) do
 
   create_table "lessons", force: true do |t|
     t.string   "title"
-    t.text     "content"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
