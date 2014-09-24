@@ -14,6 +14,8 @@ gem 'rails_admin', '~> 0.6.3'
 
 gem 'yaml_db'
 gem 'rails-secrets'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 # Twitter Bootstrap
 gem 'bootstrap-sass'
