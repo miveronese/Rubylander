@@ -120,6 +120,11 @@ function startTutorial() {
     hideButton();
     hideSummary();
     var jqConsole = createJqconsole();
+
+    $(window).click(function() {  
+      jqConsole.Focus();  
+    })
+ 
     var repl = createJsRepl(jqConsole);
     summarylesson();
     var runStep = function(lesson, stepNumber) {

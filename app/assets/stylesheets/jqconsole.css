@@ -25,10 +25,6 @@
 #accordion{
 }
 
-.steps{
-
-}
-
 #lesson_title{
     padding-left: 1px;
     font-size:14px;
@@ -63,6 +59,7 @@ pre {
 }
 /* The inner console element. */
 .jqconsole {
+    font-size: 14px;
     padding: 10px;
     padding-left: 25px;
     padding-top:25px;

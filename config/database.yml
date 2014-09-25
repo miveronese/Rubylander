@@ -1,8 +1,8 @@
 development:
   encoding: utf8
   adapter:  postgresql
-  database: Rubylander
-  username: rubylander
+  database: rubylander
+  username: postgres
   password: 'bla'
   pool: 5
 
