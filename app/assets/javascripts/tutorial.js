@@ -54,7 +54,7 @@ function applyGlossaryTips(){
 }
 
 function applyGlossaryPopover(){
-    $('.glossary-popover').popover({trigger:'click', placement:'top'});
+    $('.glossary-popover').popover({trigger:'hover', placement:'top'});
 }
 
 function showStep(message) {
@@ -93,7 +93,7 @@ function summarylesson() {
             lessons.forEach (function(lesson) {            
             accordionDiv.append(createTitle(lesson)); 
             var sizeOfStep = lesson.steps.length
-            
+ 
             var stepsContainer = $("<div>");
             accordionDiv.append(stepsContainer);
             var stepsList = $("<ul>");
@@ -104,6 +104,7 @@ function summarylesson() {
             });
             
         });
+
         accordionDiv.accordion({ header: "h3", collapsible: true, active: false, heightStyle:"content"}); 
     });
 
