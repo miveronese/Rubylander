@@ -1,7 +1,8 @@
 var FIRST_STEP = 0;
 var FIRST_LESSON = 0;
 var LAST_STEP_OF_FIRST_LESSON = 1;
-
+var console;
+var repl;
 
 
 function next(id) { return id + 1; }
@@ -18,7 +19,7 @@ function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
 }
 
-function createJsRepl(jqConsole) {
+function createJsRepl() {
     return new JSREPL();
 }
 function checkAddress(lessonNumber){
@@ -115,63 +116,72 @@ function summarylesson() {
       });
 }
 
+function runStep(lesson, stepNumber) {
+    var step = lesson.steps[stepNumber];
+        
+
+   if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
+        loadLesson(next(lesson.id), runStep);  
+    } else if (stepNumber == lesson.steps.length) {
+        showNextLesson(next(lesson.id), runStep);
+    } else {
+        showStep(step.text);
+        console.Prompt(true, function (input) {
+            repl.once("error", function(e) {
+                console.Write(e);
+                runStep(lesson, stepNumber);
+                repl.off("result");
+            });
+            repl.once("result", function(result) {
+                console.Write(result + '\n', 'jqconsole-result');
+
+                var expected;
+
+                try {
+                    expected = eval("(" + step.result + ")");
+                } catch(err) {
+                    alert(err);
+                }
+
+                if (typeof(expected) != "function") {
+                    alert("expected result is not a function")
+                }
+
+                if (expected(result)) {
+                    runStep(lesson, stepNumber + 1);
+                } else {
+                    runStep(lesson, stepNumber);
+                }
+                repl.off("error");
+            });
+            repl.eval(input);
+        });
+    }
+};
+
 function startTutorial() {
+    
+    // setup the lesson panel
     $("#summary").hide();
     hideButton();
     hideSummary();
-    var jqConsole = createJqconsole();
-
-    $(window).click(function() {  
-      jqConsole.Focus();  
-    })
- 
-    var repl = createJsRepl(jqConsole);
     summarylesson();
-    var runStep = function(lesson, stepNumber) {
-        var step = lesson.steps[stepNumber];
+
+    // create console
+    console = $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
+
+    // customize console
+    $(window).click(function() {  
+      console.Focus();  
+    })
+    
+    // create repl
+    repl = new JSREPL();
         
-
-       if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
-            loadLesson(next(lesson.id), runStep);  
-        } else if (stepNumber == lesson.steps.length) {
-            showNextLesson(next(lesson.id), runStep);
-        } else {
-            showStep(step.text);
-            jqConsole.Prompt(true, function (input) {
-                repl.once("error", function(e) {
-                    jqConsole.Write(e);
-                    runStep(lesson, stepNumber);
-                    repl.off("result");
-                });
-                repl.once("result", function(result) {
-                    jqConsole.Write(result + '\n', 'jqconsole-result');
-
-                    var expected;
-
-                    try {
-                        expected = eval("(" + step.result + ")");
-                    } catch(err) {
-                        alert(err);
-                    }
-
-                    if (typeof(expected) != "function") {
-                        alert("expected result is not a function")
-                    }
-
-                    if (expected(result)) {
-                        runStep(lesson, stepNumber + 1);
-                    } else {
-                        runStep(lesson, stepNumber);
-                    }
-                    repl.off("error");
-                });
-                repl.eval(input);
-            });
-        }
-    };
-
-    loadRubyLanguage(repl, function() {
-        jqConsole.Write(":) \n" );
+    // load language
+    repl.loadLanguage("ruby", function() {
+        console.Write(":) \n" );
         loadLesson(FIRST_LESSON, runStep);
     });
+    
 }
