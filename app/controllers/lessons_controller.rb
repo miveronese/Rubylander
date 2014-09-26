@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+
 	def index
 		@all_lessons = Lesson.all
 		render json: @all_lessons, include: :steps
