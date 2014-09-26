@@ -149,7 +149,7 @@ function runStep(lesson, stepNumber) {
 
                 
 
-                if (expected(result)) {
+                if (expected(eval(result))) {
                     runStep(lesson, stepNumber + 1);
                     alert("(expected(result))");
                 } else {
