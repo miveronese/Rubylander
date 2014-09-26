@@ -119,7 +119,6 @@ function summarylesson() {
 function runStep(lesson, stepNumber) {
     var step = lesson.steps[stepNumber];
         
-
    if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
         loadLesson(next(lesson.id), runStep);  
     } else if (stepNumber == lesson.steps.length) {
@@ -135,23 +134,29 @@ function runStep(lesson, stepNumber) {
             repl.once("result", function(result) {
                 console.Write(result + '\n', 'jqconsole-result');
 
+                // evaluate the expected result based on the function
+                // we stored in the step in rails admin
                 var expected;
-
-                try {
-                    expected = eval("(" + step.result + ")");
-                } catch(err) {
-                    alert(err);
-                }
-
-                if (typeof(expected) != "function") {
+                if (typeof(eval("(" + step.result + ")")) != "function") {
                     alert("expected result is not a function")
+                } else{
+                    try {
+                        expected = eval("(" + step.result + ")");                                            
+                    } catch(err) {
+                        alert(err);
+                    }    
                 }
+
+                
 
                 if (expected(result)) {
                     runStep(lesson, stepNumber + 1);
+                    alert("(expected(result))");
                 } else {
                     runStep(lesson, stepNumber);
+                    alert("(!expected(result))");
                 }
+
                 repl.off("error");
             });
             repl.eval(input);
@@ -171,9 +176,9 @@ function startTutorial() {
     console = $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
 
     // customize console
-    $(window).click(function() {  
-      console.Focus();  
-    })
+     $(window).click(function() {  
+       console.Focus();  
+     })
     
     // create repl
     repl = new JSREPL();
