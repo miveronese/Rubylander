@@ -137,8 +137,11 @@ function runStep(lesson, stepNumber) {
                 // evaluate the expected result based on the function
                 // we stored in the step in rails admin
                 var expected;
-                if (typeof(eval("(" + step.result + ")")) != "function") {
+                if (typeof(eval("(" + step.result + ")")) != "function" || result=="nil") {
                     alert("expected result is not a function")
+                    //every time that an error occurred in the console has to stay in the same step
+                    // and to allow the user type the next command
+                    runStep(lesson, stepNumber);
                 } else{
                     try {
                         expected = eval("(" + step.result + ")");                                            
@@ -146,15 +149,10 @@ function runStep(lesson, stepNumber) {
                         alert(err);
                     }    
                 }
-
-                
-
                 if (expected(eval(result))) {
                     runStep(lesson, stepNumber + 1);
-                    alert("(expected(result))");
                 } else {
                     runStep(lesson, stepNumber);
-                    alert("(!expected(result))");
                 }
 
                 repl.off("error");
@@ -167,9 +165,7 @@ function runStep(lesson, stepNumber) {
 function startTutorial() {
     
     // setup the lesson panel
-    $("#summary").hide();
     hideButton();
-    hideSummary();
     summarylesson();
 
     // create console
