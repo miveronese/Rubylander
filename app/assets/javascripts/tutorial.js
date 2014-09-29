@@ -116,10 +116,28 @@ function summarylesson() {
       });
 }
 
+function evaluateRailsAdminResults(lesson, stepNumber){
+ var step = lesson.steps[stepNumber];
+
+ var resultFunction;
+    try {
+        resultFunction = eval("(" + step.result + ")");  
+        if (typeof(resultFunction) != "function") {
+            alert("The result function for this step has is not a function. Step id:" + step.id);
+            // prompt again
+            runStep(lesson, stepNumber);
+        }                                         
+    } catch(err) {
+       alert("The result function for this step has a syntax error. Step id: " + step.id + ": " + err);
+       runStep(lesson, stepNumber);
+    }  
+    return resultFunction;
+}
+
 function runStep(lesson, stepNumber) {
-    var step = lesson.steps[stepNumber];
-        
-   if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
+    var step = lesson.steps[stepNumber];    
+   
+    if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
         loadLesson(next(lesson.id), runStep);  
     } else if (stepNumber == lesson.steps.length) {
         showNextLesson(next(lesson.id), runStep);
@@ -134,26 +152,25 @@ function runStep(lesson, stepNumber) {
             repl.once("result", function(result) {
                 console.Write(result + '\n', 'jqconsole-result');
 
-                // evaluate the expected result based on the function
-                // we stored in the step in rails admin
-                var expected;
-                if (typeof(eval("(" + step.result + ")")) != "function" || result=="nil") {
-                    alert("expected result is not a function")
-                    //every time that an error occurred in the console has to stay in the same step
-                    // and to allow the user type the next command
+                
+                var resultFunction = evaluateRailsAdminResults(lesson, stepNumber); 
+
+                // if result of user's command was nil
+                if (result == "nil") {
+                    // prompt again
                     runStep(lesson, stepNumber);
-                } else{
-                    try {
-                        expected = eval("(" + step.result + ")");                                            
-                    } catch(err) {
-                        alert(err);
-                    }    
+
+                }else{
+                    // check for correct result
+                    if (resultFunction(eval(result))) {
+                      //go to the next step  
+                      runStep(lesson, stepNumber + 1);
+                    } else {
+                        //prompt again
+                        runStep(lesson, stepNumber);
+                    }
                 }
-                if (expected(eval(result))) {
-                    runStep(lesson, stepNumber + 1);
-                } else {
-                    runStep(lesson, stepNumber);
-                }
+                
 
                 repl.off("error");
             });
