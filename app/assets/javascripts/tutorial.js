@@ -114,10 +114,28 @@ function summarylesson() {
       });
 }
 
+function evaluateRailsAdminResults(lesson, stepNumber){
+ var step = lesson.steps[stepNumber];
+
+ var resultFunction;
+    try {
+        resultFunction = eval("(" + step.result + ")");  
+        if (typeof(resultFunction) != "function") {
+            alert("The result function for this step has is not a function. Step id:" + step.id);
+            // prompt again
+            runStep(lesson, stepNumber);
+        }                                         
+    } catch(err) {
+       alert("The result function for this step has a syntax error. Step id: " + step.id + ": " + err);
+       runStep(lesson, stepNumber);
+    }  
+    return resultFunction;
+}
+
 function runStep(lesson, stepNumber) {
-    var step = lesson.steps[stepNumber];
-        
-   if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
+    var step = lesson.steps[stepNumber];    
+   
+    if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
         loadLesson(next(lesson.id), runStep);  
     } else if (stepNumber == lesson.steps.length) {
         showNextLesson(next(lesson.id), runStep);
@@ -131,27 +149,25 @@ function runStep(lesson, stepNumber) {
             });
             repl.once("result", function(result) {
                 console.Write(result + '\n', 'jqconsole-result');
+       
+                var resultFunction = evaluateRailsAdminResults(lesson, stepNumber); 
 
-                // evaluate the expected result based on the function
-                // we stored in the step in rails admin
-                var expected;
-                if (typeof(eval("(" + step.result + ")")) != "function") {
-                    alert("expected result is not a function")
-                } else{
-                    try {
-                        expected = eval("(" + step.result + ")");                                            
-                    } catch(err) {
-                        alert(err);
-                    }    
-                }
-
-                if (expected(eval(result)) {
-                    runStep(lesson, stepNumber + 1);
-                    alert("(expected(result))");
-                } else {
+                // if result of user's command was nil
+                if (result == "nil") {
+                    // prompt again
                     runStep(lesson, stepNumber);
-                    alert("(!expected(result))");
+
+                }else{
+                    // check for correct result
+                    if (resultFunction(eval(result))) {
+                      //go to the next step  
+                      runStep(lesson, stepNumber + 1);
+                    } else {
+                        //prompt again
+                        runStep(lesson, stepNumber);
+                    }
                 }
+                
 
                 repl.off("error");
             });
@@ -163,9 +179,7 @@ function runStep(lesson, stepNumber) {
 function startTutorial() {
     
     // setup the lesson panel
-    $("#summary").hide();
     hideButton();
-    hideSummary();
     summarylesson();
 
     // create console
