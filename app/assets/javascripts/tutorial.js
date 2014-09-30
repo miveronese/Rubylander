@@ -152,11 +152,6 @@ function runStep(lesson, stepNumber) {
 
             repl.once("result", function(result) {
                 console.Write(result + '\n', 'jqconsole-result');
-<<<<<<< HEAD
-       
-=======
- 
->>>>>>> 7f7fa683ec3b74611d82bbd53749be5f8ba82666
                 var resultFunction = evaluateRailsAdminResults(lesson, stepNumber); 
 
                 // if result of user's command was nil
