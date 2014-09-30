@@ -121,12 +121,12 @@ function evaluateRailsAdminResults(lesson, stepNumber){
     try {
         resultFunction = eval("(" + step.result + ")");  
         if (typeof(resultFunction) != "function") {
-            alert("The result function for this step has is not a function. Step id:" + step.id);
+            console.Write("The result function for this step is not a function. Step id:" + step.id+ "\n");
             // prompt again
             runStep(lesson, stepNumber);
         }                                         
     } catch(err) {
-       alert("The result function for this step has a syntax error. Step id: " + step.id + ": " + err);
+       console.Write("The result function for this step has a syntax error. Step id: " + step.id + ": " + err +"\n");
        runStep(lesson, stepNumber);
     }  
     return resultFunction;
@@ -140,16 +140,23 @@ function runStep(lesson, stepNumber) {
     } else if (stepNumber == lesson.steps.length) {
         showNextLesson(next(lesson.id), runStep);
     } else {
+
         showStep(step.text);
+
         console.Prompt(true, function (input) {
             repl.once("error", function(e) {
                 console.Write(e);
                 runStep(lesson, stepNumber);
                 repl.off("result");
             });
+
             repl.once("result", function(result) {
                 console.Write(result + '\n', 'jqconsole-result');
+<<<<<<< HEAD
        
+=======
+ 
+>>>>>>> 7f7fa683ec3b74611d82bbd53749be5f8ba82666
                 var resultFunction = evaluateRailsAdminResults(lesson, stepNumber); 
 
                 // if result of user's command was nil
@@ -167,12 +174,15 @@ function runStep(lesson, stepNumber) {
                         runStep(lesson, stepNumber);
                     }
                 }
-                
 
                 repl.off("error");
             });
+
             repl.eval(input);
         });
+
+
+
     }
 };
 
