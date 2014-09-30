@@ -4,7 +4,6 @@ var LAST_STEP_OF_FIRST_LESSON = 1;
 var console;
 var repl;
 
-
 function next(id) { return id + 1; }
 
 function hideButton() {
@@ -13,7 +12,6 @@ function hideButton() {
 function hideSummary (){
    $("#summary").hide();
 }
-
 
 function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
@@ -154,7 +152,11 @@ function runStep(lesson, stepNumber) {
 
             repl.once("result", function(result) {
                 console.Write(result + '\n', 'jqconsole-result');
+<<<<<<< HEAD
  
+=======
+       
+>>>>>>> 2cb344f2a5917c7f047e28d6fb43fe43c8ed827c
                 var resultFunction = evaluateRailsAdminResults(lesson, stepNumber); 
 
                 // if result of user's command was nil
