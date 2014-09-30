@@ -167,6 +167,7 @@ function runStep(lesson, stepNumber) {
                     } else {
                         //prompt again
                         runStep(lesson, stepNumber);
+                        //add to test in heroku
                     }
                 }
 
