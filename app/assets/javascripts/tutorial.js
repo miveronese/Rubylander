@@ -4,7 +4,6 @@ var LAST_STEP_OF_FIRST_LESSON = 1;
 var console;
 var repl;
 
-
 function next(id) { return id + 1; }
 
 function hideButton() {
@@ -13,7 +12,6 @@ function hideButton() {
 function hideSummary (){
    $("#summary").hide();
 }
-
 
 function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
@@ -147,9 +145,7 @@ function runStep(lesson, stepNumber) {
                     }    
                 }
 
-                
-
-                if (expected(result)) {
+                if (expected(eval(result)) {
                     runStep(lesson, stepNumber + 1);
                     alert("(expected(result))");
                 } else {
