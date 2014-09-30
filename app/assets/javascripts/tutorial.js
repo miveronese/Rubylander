@@ -179,8 +179,6 @@ function runStep(lesson, stepNumber) {
             repl.eval(input);
         });
 
-
-
     }
 };
 
