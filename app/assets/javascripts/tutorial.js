@@ -176,8 +176,6 @@ function runStep(lesson, stepNumber) {
             repl.eval(input);
         });
 
-
-
     }
 };
 //comentario para testar gihub
