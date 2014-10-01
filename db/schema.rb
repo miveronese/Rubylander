@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140825150230) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: true do |t|
     t.string   "language"
     t.string   "programming_language"
