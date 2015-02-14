@@ -58,9 +58,6 @@ GEM
     execjs (2.3.0)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
-    font-awesome-sass-rails (3.0.2.2)
-      railties (>= 3.1.1)
-      sass-rails (>= 3.1.1)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -204,7 +201,6 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   dotenv-rails
-  font-awesome-sass-rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql
@@ -213,7 +209,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails-secrets
   rails_12factor
-  rails_admin (~> 0.6.3)
+  rails_admin
   rspec-rails (~> 3.0.0)
   sdoc (~> 0.4.0)
   turbolinks

@@ -10,7 +10,7 @@ gem 'pg'
 
 gem 'rails_12factor', group: :production
 
-gem 'rails_admin', '~> 0.6.3'
+gem 'rails_admin'
 
 gem 'yaml_db'
 gem 'rails-secrets'
@@ -19,7 +19,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # Twitter Bootstrap
 gem 'bootstrap-sass'
-gem 'font-awesome-sass-rails' 
+# gem 'font-awesome-sass-rails' 
 
 
 # 
