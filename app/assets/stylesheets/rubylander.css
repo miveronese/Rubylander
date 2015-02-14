@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  color: white;
+  color: black
   font-family: "Helvetica Neue";
 }
 
@@ -19,15 +19,15 @@ h1 {
 .navbar > .container-fluid .navbar-brand {
 margin-left: -15px;
 margin-top: 15px;
-color:  #d3360b;
+color: #e41e23;
 font-family: 'FFF Forward', arial;
 font-size: 40px;
 }
+
 .container{
     position:relative;
     float: left;
     width: 37%;
-
     height: 500px;
     background-color: white;
     margin-left:2%;
@@ -45,6 +45,19 @@ font-size: 40px;
     padding: 10px;
     padding-left: 25px;
     padding-top:25px;
+}
+
+
+@keyframes blink {
+    0% { opacity: 0.0; }
+    49% { opacity: 0.0; }
+    50% { opacity: 1.0; }
+    100% { opacity: 1.0; }
+}
+
+.jqconsole-cursor {
+    background-color: gray;
+    animation: blink 1s linear infinite;
 }
 
 /*@font-face {

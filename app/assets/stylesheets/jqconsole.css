@@ -68,9 +68,20 @@ pre {
     padding-top:25px;
 }*/
 /* The cursor. */
+
+
+@keyframes blink {
+    0% { opacity: 0.0; }
+    49% { opacity: 0.0; }
+    50% { opacity: 1.0; }
+    100% { opacity: 1.0; }
+}
+
 .jqconsole-cursor {
     background-color: gray;
+    animation: blink 1s linear infinite;
 }
+
 /* The cursor color when the console looses focus. */
 .jqconsole-blurred .jqconsole-cursor {
     background-color: #ccc;
