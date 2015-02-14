@@ -1,11 +1,16 @@
+# development:
+#   encoding: utf8
+#   adapter:  postgresql
+#   database: rubylander
+#   username: postgres
+#   password: 'bla'
+#   pool: 5
+#   host: localhost
+ 
 development:
-  encoding: utf8
-  adapter:  postgresql
+  adapter: postgresql
   database: rubylander
-  username: postgres
-  password: 'bla'
-  pool: 5
-
+  host: localhost
 
 # test:
 #   adapter: sqlite3
