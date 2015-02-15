@@ -9,6 +9,7 @@ get '/lessons/', to: 'lessons#index'
 get 'lessons/first/' => 'lessons#first'
 get '/lessons/:id' => 'lessons#show'
 get '/about' => 'about#message'
+get '/courses' => 'courses#list_courses'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

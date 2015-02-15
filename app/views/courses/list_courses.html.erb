@@ -1,0 +1,5 @@
+<h4>We have <%=@courses.count %> courses available for you:</h4>
+</br>
+<% @courses.each do |course| %>
+<p>- <%= course.title %></p>
+<% end %>

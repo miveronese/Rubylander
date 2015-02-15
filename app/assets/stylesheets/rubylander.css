@@ -25,8 +25,14 @@ h4 {
   margin-right: 30px;
   margin-left: 30px;
   margin-top:50px;
+
 }
 
+p {
+  font-family: "Courier new";
+  color: white;
+  margin-left: 30px;
+}
 
 .navbar-default, .navbar-brand, .navbar-header, .navbar-collapse, .container-fluid {
   background-color: white;
