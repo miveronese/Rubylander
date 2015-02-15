@@ -19,15 +19,17 @@
 }
 
 #summary  {
-    background-color: #585858 ;
-    border-color: #585858;
+/*    background-color: #585858 ;
+*/  background-color: #B0B0B0;
+    border-color: #B0B0B0;
     float: top;
     padding-left: 10px;
 }
 
 #more_courses  {
     background-color: #4AC948;
-    border-color: #4AC948;
+/*    background-color: #428bca;
+*/    border-color: #4AC948;
     float: top;
     padding-left: 10px;
 }
@@ -124,4 +126,10 @@ or: inherit;
 .navbar {
 position: relative;
 min-height: 60px;
+}
+
+.container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin-right: 30px;
+    margin-left: 4px;
+}
 }
