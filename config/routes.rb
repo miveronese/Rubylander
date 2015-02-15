@@ -1,25 +1,14 @@
 Rails.application.routes.draw do
 
 mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-#get (controller # action/method)
-# root 'tutorial#home'
-root 'lessons#home'
 
+root 'lessons#home'
 
 get 'tutorial/lessons/:id', to: 'tutorial#start'
 get '/lessons/', to: 'lessons#index'
 get 'lessons/first/' => 'lessons#first'
 get '/lessons/:id' => 'lessons#show'
 
-
-#post (controller #  method)
-# post '/' => 'tutorial#run'
-# post 'tutorial/lessons/:id' => 'tutorial#run'
-
-
-
-
-# resources :lessons
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
