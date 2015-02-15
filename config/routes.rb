@@ -8,6 +8,7 @@ get 'tutorial/lessons/:id', to: 'tutorial#start'
 get '/lessons/', to: 'lessons#index'
 get 'lessons/first/' => 'lessons#first'
 get '/lessons/:id' => 'lessons#show'
+get '/about' => 'about#message'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
