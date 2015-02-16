@@ -220,6 +220,9 @@ function startTutorial() {
     });
 
 }
+
 $(document).on("ready page:load", function(){
     startTutorial();    
 });
+
+
