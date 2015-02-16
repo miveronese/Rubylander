@@ -1,0 +1,1 @@
+class About < ActiveRecord::Base

@@ -1,0 +1,103 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: black;
+  color: black
+  font-family: "Helvetica Neue";
+  margin-bottom: 60px;
+}
+
+h1 {
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: white;
+}
+
+
+h4 {
+  font-family: "Courier new";
+  font-weight: 30;
+  letter-spacing: 1px;
+  color: white;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top:50px;
+
+}
+
+p {
+  font-family: "Courier new";
+  color: white;
+  margin-left: 30px;
+}
+
+.navbar-default, .navbar-brand, .navbar-header, .navbar-collapse, .container-fluid {
+  background-color: white;
+  border-color: white;
+}
+
+.navbar > .container-fluid .navbar-brand {
+margin-left: -15px;
+margin-top: 15px;
+color: #e41e23;
+font-family: 'FFF Forward', arial;
+font-size: 40px;
+}
+
+.container{
+    position:relative;
+    float: left;
+    width: 37%;
+    height: 500px;
+    background-color: white;
+    margin-left:2%;
+    margin-right:1%;
+    padding-top:0px;   
+    font-size:12px;
+    border-right: 1px solid #f6f5f0;
+    border-left: 1px solid #f6f5f0;
+    text-align: left;
+}
+
+
+.jqconsole {
+    font-family: 'Courier New';
+    font-size: 14px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-top:25px;
+}
+
+
+@keyframes blink {
+    0% { opacity: 0.0; }
+    49% { opacity: 0.0; }
+    50% { opacity: 1.0; }
+    100% { opacity: 1.0; }
+}
+
+.jqconsole-cursor {
+    background-color: gray;
+    animation: blink 1s linear infinite;
+}
+
+/*@font-face {
+  font-family: 'FFF Forward', arial;
+  src: url('/assets/fonts/fffforwa.ttf');*/
+
+/*.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+   Set the fixed height of the footer here 
+  height: 60px;
+  background-color: #f5f5f5;
+}*/
+
+#footer {
+/*  clear: both ;
+
+}
