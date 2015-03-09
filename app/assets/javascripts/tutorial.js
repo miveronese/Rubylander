@@ -16,6 +16,10 @@ function hideSummary() {
     $("#summary").hide();
 }
 
+// function hideCourses() {
+//     $("#more_courses").hide();
+// }
+
 function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
 }
@@ -121,13 +125,47 @@ function summarylesson() {
         });
     });
 
-
     $("#summary").show();
     $("#summary").click(function() {
         $("#summary-box").modal({
             show: true
         });
+
     });
+
+}
+
+function accordionCourse() {
+    // hideCourses();
+
+    var createCourseTitle = function(course) {
+        var course_title = $("<h3>");
+        course_title.append(course.title);
+        return course_title;
+    };
+
+      $.getJSON("/courses", function(data) {
+        var accordionDiv = $("#accordion2");
+        data.forEach(function(course) {
+            accordionDiv.append(createCourseTitle(course));
+
+        });
+
+        accordionDiv.accordion({
+            header: "h3",
+            collapsible: false,
+            // active: false,
+            heightStyle: "list"
+        });
+    });
+    
+    $("#more_courses").show();
+    $("#more_courses").click(function() {
+        $("#more_courses_box").modal({
+            show: true
+        });
+    });
+
 }
 
 function evaluateRailsAdminResults(lesson, stepNumber) {
@@ -194,13 +232,13 @@ function runStep(lesson, stepNumber) {
 
     }
 };
-//comentario para testar gihub
 
 function startTutorial() {
 
     // setup the lesson panel
     hideButton();
     summarylesson();
+    accordionCourse();
 
     // create console
     console = $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');

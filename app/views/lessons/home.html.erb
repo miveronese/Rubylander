@@ -1,15 +1,23 @@
 
 <div class ="container">
 
-  <button id="summary" class="btn btn-primary"><%= @course.title %></button>
- <button id="more_courses" class="btn btn-primary">+ Courses</button>
+ <button id="summary" class="btn btn-primary"><%= @course.title %></button>
 
   <div id="summary-box" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="panel-group" id="accordion">
-      </div>
+      <div class="panel-group" id="accordion"></div>
     </div>
   </div>
+
+ <button id="more_courses" class="btn btn-primary">+ Courses</button>
+  <div id="more_courses_box" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+    <div class="panel-group" id="accordion2"></div>
+  </div>
+    </div>
+
+
   </br>
     </br></br>
   <div id ="lesson_title">

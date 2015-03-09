@@ -16,8 +16,8 @@ class LessonsController < ApplicationController
 	end
 
 	def first
-        @first_lesson = Lesson.first
-        render json: @first_lesson, include: :steps
+    @first_lesson = Lesson.first
+    render json: @first_lesson, include: :steps
 	end
 
 

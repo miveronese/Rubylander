@@ -5,4 +5,9 @@ class CoursesController < ApplicationController
     @course = Course.first
   end
 
+  def index
+    @courses = Course.all
+    @course = Course.first
+    render json: @courses, include: {lessons: {include: :steps}} 
+  end
 end
