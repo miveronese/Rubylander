@@ -20,7 +20,7 @@ module Tutorial
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     # config.assets.initialize_on_precompile = false
-    # config.serve_static_assets = true
+    # config.serve_static_assets = false
     config.secret_key_base = "da9461981b2f9b421c3c9f8da9ae6b2b8618cbaf8f3cac713269aa1335b10fe7ac5bf48aa8827b776f9c1e4fd4de82bd8676a8c80ae968839de97355e918afcc"
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
