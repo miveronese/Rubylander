@@ -48,8 +48,12 @@ function loadCourses(id) {
     
   var path = '/courses/' + id;
     $.getJSON(path, function(data) { 
-        var title = data.lessons[0].title;
-        setLessonTitle(title);
+        var lesson_title = data.lessons[0].title;
+        setLessonTitle(lesson_title);
+        var course_title = data.title;
+        setCourseTitle(course_title);
+
+        // runStep(lesson, FIRST_STEP);
     });  
  }
 
@@ -63,6 +67,9 @@ function setLessonTitle(title) {
     $('#lesson_title').html(title);
 }
 
+function setCourseTitle(title) {
+    $('#course_title').html(title);
+}
 
 function showStep(message) {
     $('#messages').html(message);

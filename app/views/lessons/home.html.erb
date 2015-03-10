@@ -6,27 +6,32 @@
     <button type="button" class="btn btn-default active" > Help <span class="caret"></span></button>
       
     </div> -->
-<div class="btn-group">
- <div id="summary" type="button" class="btn btn-warning"><%= @course.title %></div>
+<!-- <div class="btn-group">
+ <div id="summary" type="button" class="btn btn-warning"></div>
 
     <div id="summary-box" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="panel-group" id="accordion"></div>
       </div>
     </div>
-</div>
+</div> -->
     
   <div class="btn-group">
+    <button type="button" id="course_title" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" > Pick up a course
+    </button>
+  </div>
+
+  <div class="btn-group">
     <button type="button" id="course_dropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" >
-      Courses <span class="caret"></span>
+      + Courses <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" id="list_dropdown" role="menu">
     </ul>
-</div>
+  </div>
 
   
   </br>
-    </br></br>
+  </br>
   <div id ="lesson_title">
   </div>
     </br>
