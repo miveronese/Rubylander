@@ -40,17 +40,18 @@ p {
 }
 
 .navbar > .container-fluid .navbar-brand {
-margin-left: -15px;
+margin-left: 410px;
 margin-top: 15px;
+margin-bottom: 12px;
 color: #e41e23;
 font-family: 'FFF Forward', arial;
-font-size: 40px;
+font-size: 35px;
 }
 
 .container{
     position:relative;
     float: left;
-    width: 37%;
+    width: 30%;
     height: 500px;
     background-color: white;
     margin-left:2%;
@@ -62,6 +63,11 @@ font-size: 40px;
     text-align: left;
 }
 
+.navbar-inner {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
 
 .jqconsole {
     font-family: 'Courier New';

@@ -144,18 +144,17 @@ function accordionCourse() {
         return course_title;
     };
 
-      $.getJSON("/courses", function(data) {
-        var accordionDiv = $("#accordion2");
+      $.getJSON("/courses/", function(data) {
         data.forEach(function(course) {
-            accordionDiv.append(createCourseTitle(course));
-
+            $("#accordion2").append(createCourseTitle(course));
+            $("#accordion2").append($("<div>"));
         });
 
-        accordionDiv.accordion({
+        $("#accordion2").accordion({
             header: "h3",
-            collapsible: false,
-            // active: false,
-            heightStyle: "list"
+            collapsible: true,
+            active: false,
+            heightStyle: "content"
         });
     });
     
@@ -240,8 +239,9 @@ function startTutorial() {
     summarylesson();
     accordionCourse();
 
+
     // create console
-    console = $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
+    console = $('#console').jqconsole("Write your code here.\n", '>>> ');
 
     // customize console
     $(window).click(function() {
@@ -253,7 +253,7 @@ function startTutorial() {
 
     // load language
     repl.loadLanguage("ruby", function() {
-        console.Write(":) \n");
+        console.Write(" \n");
         loadLesson(FIRST_LESSON, runStep);
     });
 
