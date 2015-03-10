@@ -135,7 +135,7 @@ function dropdownCourses() {
         course_title.attr('id', course.id);
         course_title.attr('val', course.id);
 
-        course_title.append(course.id + ". " + course.title);
+        course_title.append(course.title);
         return course_title;
     };
 

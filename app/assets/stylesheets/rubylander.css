@@ -28,6 +28,14 @@ h4 {
 
 }
 
+#titles {
+
+    font-family: times, Times New Roman, times-roman, georgia, serif;
+    font-size: 23px;
+    line-height: 40px;
+    letter-spacing: -1px;color: #444;
+  }
+
 p {
   font-family: "Courier new";
   color: white;
