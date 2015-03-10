@@ -48,11 +48,11 @@ function loadLesson(lessonNumber, runStep) {
 
 
 function loadCourses() {
-    // var courseId  = $("ul#list-dropdown a").val();
-    // var path = '/courses/' + courseId
-    //   $.getJSON(path, function(data) { 
-        alert("bla"); 
-    // });  
+    var courseId  = $("#course-id").val();
+    var path = '/courses/' + courseId
+      $.getJSON(path, function(data) { 
+        alert(data.first);
+    });  
  }
 
 function loadRubyLanguage(repl, languageCallback) {
@@ -145,29 +145,25 @@ function summarylesson() {
 function dropdownCourses() {
 
     var createCourseTitle = function(course) {
-        var course_title = $("<a href><p>");
+        var course_title = $("<li>");
+        course_title.attr('id', "course" + course.id);
+        course_title.attr('val', course.id);
+
         course_title.append(course.id + ". " + course.title);
         return course_title;
     };
 
-    // var getCourseId = function(id) {
-    //     var course_id = $("<li>");
-    //     course_id.append(id.id);
-    //     return course_id;
-    // };
-
       $.getJSON("/courses/", function(data) {
         data.forEach(function(course) {
           $("#list_dropdown").append(createCourseTitle(course));
-        });
-                    
+        });               
     });
 
-   $("ul.dropdown-menu").click(function(event) {
-        loadCourses();
+     $(".dropdown-menu").on('click', 'li', function() {
+        // loadCourses();
+        alert("li.click:" + $(this).text());
     });
 }
-
 
 
 function evaluateRailsAdminResults(lesson, stepNumber) {
