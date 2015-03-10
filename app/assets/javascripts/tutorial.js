@@ -16,9 +16,6 @@ function hideSummary() {
     $("#summary").hide();
 }
 
-// function hideCourses() {
-//     $("#more_courses").hide();
-// }
 
 function createJqconsole() {
     return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
@@ -38,22 +35,21 @@ function checkAddress(lessonNumber) {
     return address;
 }
 
-function loadLesson(lessonNumber, runStep) {
+// function loadLesson(lessonNumber, runStep) {
 
-    $.getJSON(checkAddress(lessonNumber), function(lesson) {
-        setLessonTitle(lesson.title);
-        runStep(lesson, FIRST_STEP);
-    });
-}
+//     $.getJSON(checkAddress(lessonNumber), function(lesson) {
+//         setLessonTitle(lesson.title);
+//         runStep(lesson, FIRST_STEP);
+//     });
+// }
 
 
 function loadCourses(id) {
-    var courseId  = id
-    var path = '/courses/' + courseId
-      $.getJSON(path, function(data) { 
-        alert(data.title);
-        alert(data.id);
-
+    
+  var path = '/courses/' + id;
+    $.getJSON(path, function(data) { 
+        var title = data.lessons[0].title;
+        setLessonTitle(title);
     });  
  }
 
@@ -67,18 +63,6 @@ function setLessonTitle(title) {
     $('#lesson_title').html(title);
 }
 
-function applyGlossaryTips() {
-    $('.glossary-tips').tooltip({
-        placement: 'top'
-    });
-}
-
-function applyGlossaryPopover() {
-    $('.glossary-popover').popover({
-        trigger: 'hover',
-        placement: 'top'
-    });
-}
 
 function showStep(message) {
     $('#messages').html(message);
@@ -147,7 +131,7 @@ function summarylesson() {
 function dropdownCourses() {
 
     var createCourseTitle = function(course) {
-        var course_title = $("<a href><p>");
+        var course_title = $("<li>");
         course_title.attr('id', course.id);
         course_title.attr('val', course.id);
 
@@ -161,14 +145,11 @@ function dropdownCourses() {
         });               
     });
 
-     $(".dropdown-menu").on('click', 'a', function() {
+     $(".dropdown-menu").on('click', 'li', function() {
         var id = $(this).attr("id");
-        loadCourses(id);
-        // alert($(this).attr("id"));
-        // alert(id);
+        loadCourses(id); 
     });
 }
-
 
 function evaluateRailsAdminResults(lesson, stepNumber) {
     var step = lesson.steps[stepNumber];
@@ -238,7 +219,7 @@ function runStep(lesson, stepNumber) {
 function startTutorial() {
 
     hideButton();
-    summarylesson();
+    // summarylesson();
     dropdownCourses();
 
     console = $('#console').jqconsole("Write your code here.\n", '>>> ');
@@ -251,7 +232,8 @@ function startTutorial() {
 
     repl.loadLanguage("ruby", function() {
         console.Write(" \n");
-        loadLesson(FIRST_LESSON, runStep);
+        // loadLesson(FIRST_LESSON, runStep);
+        loadCourses(id);
     });
 
 }
