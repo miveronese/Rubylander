@@ -18,6 +18,14 @@
     max-width: 350px;
 }
 
+.button, button {
+   
+    font: 11px Verdana;
+    padding: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 #summary  {
     background-color: #B0B0B0;
     border-color: #B0B0B0;

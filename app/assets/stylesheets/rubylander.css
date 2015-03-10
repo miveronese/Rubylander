@@ -42,7 +42,7 @@ p {
 .navbar > .container-fluid .navbar-brand {
 margin-left: 410px;
 margin-top: 15px;
-margin-bottom: 12px;
+margin-bottom: 6px;
 color: #e41e23;
 font-family: 'FFF Forward', arial;
 font-size: 35px;
@@ -52,7 +52,7 @@ font-size: 35px;
     position:relative;
     float: left;
     width: 30%;
-    height: 500px;
+    height: 600px;
     background-color: white;
     margin-left:2%;
     margin-right:1%;
@@ -63,11 +63,6 @@ font-size: 35px;
     text-align: left;
 }
 
-.navbar-inner {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-}
 
 .jqconsole {
     font-family: 'Courier New';

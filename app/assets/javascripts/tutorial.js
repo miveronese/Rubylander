@@ -129,40 +129,32 @@ function summarylesson() {
     $("#summary").click(function() {
         $("#summary-box").modal({
             show: true
-        });
-
+      });
     });
-
 }
 
-function accordionCourse() {
-    // hideCourses();
+function dropdownCourses() {
 
     var createCourseTitle = function(course) {
-        var course_title = $("<h3>");
+        var course_title = $("<a href><p>");
         course_title.append(course.title);
         return course_title;
     };
 
+    // var getCourseId = function(id) {
+    //     var course_id = $("<li>");
+    //     course_id.append(id.id);
+    //     return course_id;
+    // };
+
       $.getJSON("/courses/", function(data) {
         data.forEach(function(course) {
-            $("#accordion2").append(createCourseTitle(course));
-            $("#accordion2").append($("<div>"));
+          $("#list_dropdown").append(createCourseTitle(course));
         });
-
-        $("#accordion2").accordion({
-            header: "h3",
-            collapsible: true,
-            active: false,
-            heightStyle: "content"
-        });
-    });
     
-    $("#more_courses").show();
-    $("#more_courses").click(function() {
-        $("#more_courses_box").modal({
-            show: true
-        });
+        // data.forEach(function(id) {
+        //   $("#list_dropdown").append(getCourseId(id));
+        // });
     });
 
 }
@@ -234,24 +226,18 @@ function runStep(lesson, stepNumber) {
 
 function startTutorial() {
 
-    // setup the lesson panel
     hideButton();
     summarylesson();
-    accordionCourse();
+    dropdownCourses();
 
-
-    // create console
     console = $('#console').jqconsole("Write your code here.\n", '>>> ');
 
-    // customize console
     $(window).click(function() {
         console.Focus();
     })
 
-    // create repl
     repl = new JSREPL();
 
-    // load language
     repl.loadLanguage("ruby", function() {
         console.Write(" \n");
         loadLesson(FIRST_LESSON, runStep);
