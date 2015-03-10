@@ -46,6 +46,15 @@ function loadLesson(lessonNumber, runStep) {
     });
 }
 
+
+function loadCourses() {
+    // var courseId  = $("ul#list-dropdown a").val();
+    // var path = '/courses/' + courseId
+    //   $.getJSON(path, function(data) { 
+        alert("bla"); 
+    // });  
+ }
+
 function loadRubyLanguage(repl, languageCallback) {
     repl.loadLanguage("ruby", function() {
         languageCallback();
@@ -137,7 +146,7 @@ function dropdownCourses() {
 
     var createCourseTitle = function(course) {
         var course_title = $("<a href><p>");
-        course_title.append(course.title);
+        course_title.append(course.id + ". " + course.title);
         return course_title;
     };
 
@@ -151,13 +160,15 @@ function dropdownCourses() {
         data.forEach(function(course) {
           $("#list_dropdown").append(createCourseTitle(course));
         });
-    
-        // data.forEach(function(id) {
-        //   $("#list_dropdown").append(getCourseId(id));
-        // });
+                    
     });
 
+   $("ul.dropdown-menu").click(function(event) {
+        loadCourses();
+    });
 }
+
+
 
 function evaluateRailsAdminResults(lesson, stepNumber) {
     var step = lesson.steps[stepNumber];
