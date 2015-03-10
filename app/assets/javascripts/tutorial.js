@@ -154,7 +154,7 @@
 
     hideButton();
     dropdownCourses();
-    console = $('#console').jqconsole("Write your code here.\n", '>>> ');
+    console = $('#console').jqconsole("Choose a course to activate this window.\n", '>>> ');
 
     $(window).click(function() {
       console.Focus();
