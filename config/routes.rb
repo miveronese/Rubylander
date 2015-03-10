@@ -12,6 +12,7 @@ get '/about' => 'about#message'
 get '/courses' => 'courses#index'
 get '/mycourses' => 'courses#list_courses'
 
+resources :courses
 
 
   # The priority is based upon order of creation: first created -> highest priority.
