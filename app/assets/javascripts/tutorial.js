@@ -47,11 +47,13 @@ function loadLesson(lessonNumber, runStep) {
 }
 
 
-function loadCourses() {
-    var courseId  = $("#course-id").val();
+function loadCourses(id) {
+    var courseId  = id
     var path = '/courses/' + courseId
       $.getJSON(path, function(data) { 
-        alert(data.first);
+        alert(data.title);
+        alert(data.id);
+
     });  
  }
 
@@ -145,8 +147,8 @@ function summarylesson() {
 function dropdownCourses() {
 
     var createCourseTitle = function(course) {
-        var course_title = $("<li>");
-        course_title.attr('id', "course" + course.id);
+        var course_title = $("<a href><p>");
+        course_title.attr('id', course.id);
         course_title.attr('val', course.id);
 
         course_title.append(course.id + ". " + course.title);
@@ -159,9 +161,11 @@ function dropdownCourses() {
         });               
     });
 
-     $(".dropdown-menu").on('click', 'li', function() {
-        // loadCourses();
-        alert("li.click:" + $(this).text());
+     $(".dropdown-menu").on('click', 'a', function() {
+        var id = $(this).attr("id");
+        loadCourses(id);
+        // alert($(this).attr("id"));
+        // alert(id);
     });
 }
 
