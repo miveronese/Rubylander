@@ -154,7 +154,7 @@
 
     hideButton();
     dropdownCourses();
-    console = $('#console').jqconsole("Choose a course to activate this window.\n", '>>> ');
+    console = $('#console').jqconsole("Choose a course to activate this terminal.\n", '>>> ');
 
     $(window).click(function() {
       console.Focus();
@@ -163,10 +163,10 @@
     repl = new JSREPL();
     repl.loadLanguage("ruby", function() {
       console.Write(" \n");
-      // loadLesson(FIRST_LESSON, runStep);
       loadCourses(id, runStep);
     });
   }
+
 
   $(document).on("ready page:load", function(){
     startTutorial();    
@@ -175,8 +175,8 @@
 
 
 
-//THE FOLLOWING ARE FUNCTIONS USED, IN THE PAST, IN THE ACCORDION AND
-//ALSO WHEN WE DIDN'T HAD A COURSES TABLE
+//THE FOLLOWING ARE FUNCTIONS USED IN THE PAST: IN THE ACCORDION AND
+// BEFORE WE CREATED COURSES
 
 // function summarylesson() {
 //     hideSummary();
