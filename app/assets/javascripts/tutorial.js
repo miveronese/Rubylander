@@ -4,32 +4,10 @@
   var console;
   var repl;
 
-
-  function createJqconsole() {
-    return $('#console').jqconsole("Welcome to RubyLander!\n", '>>> ');
-  }
-
-  function createJsRepl() {
-    return new JSREPL();
-  }
-
   function loadRubyLanguage(repl, languageCallback) {
     repl.loadLanguage("ruby", function() {
       languageCallback();
     });
-  }
-
-  function loadCourses(id) { 
-    var path = '/courses/' + id;
-
-    $.getJSON(path, function(data) { 
-      var lesson_title = data.lessons[0].title;
-      setLessonTitle(lesson_title);
-      var course_title = data.title;
-      setCourseTitle(course_title);
-
-      runStep(data.lessons[0], FIRST_STEP);
-    });  
   }
 
   function setCourseTitle(title) {
@@ -48,39 +26,31 @@
     return id + 1;
   }
 
-  function hideButton() {
-    $("#button").hide();
+  function evaluateRailsAdminResults(lesson, stepNumber) {
+
+    var step = lesson.steps[stepNumber];
+    var resultFunction;
+
+    try {
+      resultFunction = eval("(" + step.result + ")");
+      if (typeof(resultFunction) != "function") {
+        console.Write("The result function for this step is not a function. Step id:" + step.id + "\n");
+        runStep(lesson, stepNumber);
+      }
+
+    } catch (err) {
+      console.Write("The result function for this step has a syntax error. Step id: " + step.id + ": " + err + "\n");
+      runStep(lesson, stepNumber);
+    }
+
+    return resultFunction;
   }
 
-  function dropdownCourses() {
-    var createCourseTitle = function(course) {
-      var course_title = $("<li>");
-      course_title.attr('id', course.id);
-      course_title.attr('val', course.id);
-      course_title.append(course.title);
-      return course_title;
-    };
-
-    $.getJSON("/courses/", function(data) {
-      data.forEach(function(course) {
-        $("#list_dropdown").append(createCourseTitle(course));
-      });               
-    });
-
-    $(".dropdown-menu").on('click', 'li', function() {
-      var id = $(this).attr("id");
-      loadCourses(id); 
-    });
-  }
 
   function runStep(lesson, stepNumber) {
     var step = lesson.steps[stepNumber];
 
-    if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
-      loadCourses(next(lesson.id), runStep);
-    } else {
       showStep(step.text);
-
 
       console.Prompt(true, function(input) {
         repl.once("error", function(e) {
@@ -108,33 +78,46 @@
 
         repl.eval(input);
       });
-    }
+    
   };
 
-  function evaluateRailsAdminResults(lesson, stepNumber) {
+  function loadCourses(id) { 
+    var path = '/courses/' + id;
 
-    var step = lesson.steps[stepNumber];
-    var resultFunction;
+    $.getJSON(path, function(data) { 
+      var lesson_title = data.lessons[0].title;
+      setLessonTitle(lesson_title);
+      var course_title = data.title;
+      setCourseTitle(course_title);
+       
+      runStep(data.lessons[0], FIRST_STEP);
+    });  
+  }
 
-    try {
-      resultFunction = eval("(" + step.result + ")");
-      if (typeof(resultFunction) != "function") {
-        console.Write("The result function for this step is not a function. Step id:" + step.id + "\n");
-        runStep(lesson, stepNumber);
-      }
+  function dropdownCourses() {
+    var createCourseTitle = function(course) {
+      var course_title = $("<li>");
+      course_title.attr('id', course.id);
+      course_title.attr('val', course.id);
+      course_title.append(course.title);
+      return course_title;
+    };
 
-    } catch (err) {
-      console.Write("The result function for this step has a syntax error. Step id: " + step.id + ": " + err + "\n");
-      runStep(lesson, stepNumber);
-    }
+    $.getJSON("/courses/", function(data) {
+      data.forEach(function(course) {
+        $("#list_dropdown").append(createCourseTitle(course));
+      });               
+    });
 
-    return resultFunction;
+    $(".dropdown-menu").on('click', 'li', function() {
+      var id = $(this).attr("id");
+      loadCourses(id); 
+    });
   }
 
 
   function startTutorial() {
 
-    hideButton();
     dropdownCourses();
     console = $('#console').jqconsole("Choose a course to activate this terminal.\n", '>>> ');
 
@@ -145,12 +128,10 @@
     repl = new JSREPL();
     repl.loadLanguage("ruby", function() {
       console.Write(" \n");
-      loadCourses(id, runStep);
     });
   }
 
-
   $(document).on("ready page:load", function(){
-    startTutorial();    
+    startTutorial();
   });
 
