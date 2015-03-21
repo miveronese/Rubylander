@@ -44,17 +44,6 @@
     $('#messages').html(message);
   }
 
-  function showNextLesson(nextLessonId, runStep) {
-    $('#messages').html("Click on Next Lesson to continue your learning");
-    $("#button").show();
-    $("#summary").show();
-    $("#button").unbind();
-    $("#button").click(function() {
-      hideButton();
-      loadCourses(nextLessonId, runStep);
-    });
-  }
-
   function next(id) {
     return id + 1;
   }
@@ -89,10 +78,9 @@
 
     if (lesson.id == FIRST_LESSON && stepNumber == LAST_STEP_OF_FIRST_LESSON) {
       loadCourses(next(lesson.id), runStep);
-    } else if (stepNumber == lesson.steps.length) {
-      showNextLesson(next(lesson.id), runStep);
     } else {
       showStep(step.text);
+
 
       console.Prompt(true, function(input) {
         repl.once("error", function(e) {
@@ -105,17 +93,12 @@
           console.Write(result + '\n', 'jqconsole-result');
           var resultFunction = evaluateRailsAdminResults(lesson, stepNumber);
 
-          // if result of user's command was nil
           if (result == "nil") {
-            // prompt again
             runStep(lesson, stepNumber);
           } else {
-            // check for correct result
             if (resultFunction(eval(result))) {
-              //go to the next step  
               runStep(lesson, stepNumber + 1);
             } else {
-              //prompt again
               runStep(lesson, stepNumber);
             }
           }
@@ -137,7 +120,6 @@
       resultFunction = eval("(" + step.result + ")");
       if (typeof(resultFunction) != "function") {
         console.Write("The result function for this step is not a function. Step id:" + step.id + "\n");
-        // prompt again
         runStep(lesson, stepNumber);
       }
 
@@ -172,76 +154,3 @@
     startTutorial();    
   });
 
-
-
-
-//THE FOLLOWING ARE FUNCTIONS USED IN THE PAST: IN THE ACCORDION AND
-// BEFORE WE CREATED COURSES
-
-// function summarylesson() {
-//     hideSummary();
-//     var createStepItem = function(step) {
-//         var stepItem = $("<li>");
-//         stepItem.append(step.title);
-//         return stepItem;
-//     };
-//     var createTitle = function(lesson) {
-//         var title = $("<h3>");
-//         title.append(lesson.title);
-//         return title;
-//     };
-
-//     $.getJSON("/lessons/", function(lessons) {
-
-//       var accordionDiv = $("#accordion");
-//       lessons.forEach(function(lesson) {
-//         accordionDiv.append(createTitle(lesson));
-//         var sizeOfStep = lesson.steps.length
-
-//         var stepsContainer = $("<div>");
-//         accordionDiv.append(stepsContainer);
-//         var stepsList = $("<ul>");
-//         stepsContainer.append(stepsList);
-
-//         lesson.steps.forEach(function(step) {
-//             stepsList.append(createStepItem(step));
-//         });
-
-//         });
-
-//         accordionDiv.accordion({
-//             header: "h3",
-//             collapsible: true,
-//             active: false,
-//             heightStyle: "content"
-//         });
-//     });
-
-//     $("#summary").show();
-//     $("#summary").click(function() {
-//         $("#summary-box").modal({
-//             show: true
-//       });
-//     });
-// }
-// function checkAddress(lessonNumber) {
-//     var address = "";
-//     if (lessonNumber == 0) {
-//         address = "/lessons/first";
-//     } else {
-//         address = "/lessons/" + lessonNumber;
-//     }
-//     return address;
-// }
-
-// function loadLesson(lessonNumber, runStep) {
-
-//     $.getJSON(checkAddress(lessonNumber), function(lesson) {
-//         // setLessonTitle(lesson.title);
-//         runStep(lesson, FIRST_STEP);
-//     });
-// }
-
-// function hideSummary() {
-//     $("#summary").hide();
-// }
