@@ -48,7 +48,7 @@ p {
 }
 
 .navbar > .container-fluid .navbar-brand {
-margin-left: 410px;
+margin-left: -10px;
 margin-top: 25px;
 margin-bottom: 2px;
 color: #e41e23;
@@ -56,6 +56,30 @@ font-family: 'FFF Forward', arial;
 font-size: 49px;
 }
 
+
+.navbar {
+position: relative;
+min-height: 60px;
+}
+
+.container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin-right: 30px;
+    margin-left: 4px;
+}
+
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+    margin-top: 13px;
+  }
+  .navbar-right ~ .navbar-right {
+    margin-right: 0;
+  }
+}
 .container{
     position:relative;
     float: left;
