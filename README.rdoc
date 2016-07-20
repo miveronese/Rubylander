@@ -1,2 +1,2 @@
-rubylander.herokuapp.com is an online tutorial where you can type Ruby code and run it. 
-It was created while me (Mi Veronese) and Caroline Visotto were giving our very first baby steps in Ruby, Rails and JavaScript, during the Rails Girls Summer of Code 2014 at SoundCloud, Berlin.
+Rubylander (http://rubylander.herokuapp.com) is an online tutorial where you can type Ruby code and run it. 
+It was created while me (Michelle Veronese) and Caroline Visotto were giving our very first baby steps in Ruby, Rails and JavaScript, during the Rails Girls Summer of Code 2014 at SoundCloud, Berlin. 
